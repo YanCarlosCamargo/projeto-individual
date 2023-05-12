@@ -14,6 +14,7 @@ apelido VARCHAR(45),
 nome VARCHAR(50),
 dtNasc DATE,
 email VARCHAR(45),
+senha int,
 telefone VARCHAR(12),
 dtCadastro DATE,
 bio VARCHAR(200));
