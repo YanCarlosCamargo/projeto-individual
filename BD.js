@@ -18,7 +18,7 @@ const promissePool = pool.promise();
 
 // Create the connection pool. The pool-specific settings are the defaults
 
-async function executarSelect(field, table, where) {
+async function executarSelect(table, where) {
 
     const pool = mysql.createPool({
         host: 'localhost',
@@ -78,4 +78,8 @@ async function inserirUsuario(email, senha, nome, telefone, bio, apelido, foto, 
     return [row] = await promissePool.query(`INSERT INTO tbUsuario (apelido, nome, dtNasc, email, senha, telefone, dtCadastro, bio, imgPerfil) VALUES ('${apelido}', '${nome}', '${dtNasc}', '${email}', '${senha}', '${telefone}', NOW(), '${bio}', '${foto}')`)
 }
 
-module.exports = { executarSelect, listar, executarInsert, executarQuery, inserirUsuario }; 
+async function login(email, senha) {
+    return [row] = await promissePool.query(`SELECT * FROM tbUsuario WHERE email = '${email}' AND senha = '${senha}'`)
+}
+
+module.exports = { executarSelect, listar, executarInsert, executarQuery, inserirUsuario, login }; 

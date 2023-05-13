@@ -32,6 +32,11 @@ router.post('/listar', function (req, res, next) {
     controller.listar(req, res);
 });
 
+router.post('/login', function (req, res, next) {
+    console.log("A requisição no routes login é a seguinte ", req.body)
+    controller.login(req, res);
+});
+
 router.post('/cadastrar', (req, res, next) => {
     console.log("A requisição do CADASTRAR é a seguinte ", req);
 

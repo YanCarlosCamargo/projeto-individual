@@ -3,6 +3,35 @@
 const clientId = '83f26f78f9124b6';
 
 async function login() {
+    var email = document.getElementById('inputEmail').value;
+    var senha = document.getElementById('inputSenha').value;
+
+    var body = {
+        email: email,
+        senha: senha
+    };
+    console.log(body);
+
+    await fetch('/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    }).then(response => response.json()).then(row => {
+        console.log(row[0])
+        if (row[0]) {
+            alert('Login realizado com sucesso')
+        } else {
+            alert('Email ou senha incorretos')
+        }
+
+    }).catch(console.log);
+}
+
+
+
+async function cadastro() {
     console.log("Logando");
     var email = document.getElementById('inputEmailCadastro').value;
     var senha = document.getElementById('inputSenhaCadastro').value;

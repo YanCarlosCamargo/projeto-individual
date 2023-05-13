@@ -46,5 +46,12 @@ async function inserirUsuario(req, res) {
     res.json(result[0]);
 }
 
+async function login(req, res) {
+    let email = req.body.email;
+    let senha = req.body.senha;
+    console.log("A requisição no controller login é a seguinte " + " email: " + email + " senha: " + senha)
+    let result = await bd.login(email, senha);
+    res.json(result[0]);
+}
 
-module.exports = { listar, executarSelect, executarInsert, inserirUsuario };
+module.exports = { listar, executarSelect, executarInsert, inserirUsuario, login };

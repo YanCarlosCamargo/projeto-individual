@@ -60,7 +60,8 @@ body {
 
 
 .cardLogin {
-    background-color: #000000d2;
+    background-image: url(../assets/img/design/maker-login.jpg);
+    background-size: cover;
     margin: 0 auto;
     display: flex;
     width: 60vw;
@@ -73,8 +74,6 @@ body {
 
 .imgLogin {
 
-    background-image: url(../assets/img/design/maker-login.jpg);
-    background-size: cover;
     align-items: center;
     justify-content: left;
     display: flex;
@@ -85,7 +84,7 @@ body {
 }
 
 .rightLoginBackground {
-    background-color: #D9D9D9;
+    background-color: #d9d9d9c7;
     width: 50%;
     height: 100%;
 }
@@ -238,7 +237,7 @@ body {
 
     font-family: 'Poppins';
 
-    background-color: #D9D9D9;
+    background-color: #d9d9d999;
 
     display: flex;
     width: 100%;
