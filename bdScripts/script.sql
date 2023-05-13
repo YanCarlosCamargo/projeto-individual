@@ -17,14 +17,16 @@ email VARCHAR(45),
 senha int,
 telefone VARCHAR(12),
 dtCadastro DATE,
-bio VARCHAR(200));
+bio VARCHAR(200),
+imgPerfil VARCHAR(300));
 
 CREATE TABLE tbPosts (
 idPost INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 titulo VARCHAR(30),
-descPost VARCHAR(400),
+descPost VARCHAR(1000),
 dtPost DATE,
-fkAutor INT NOT NULL);
+fkAutor INT NOT NULL,
+imgPost VARCHAR(300));
 
 CREATE TABLE assLikes (
 idLikes INT AUTO_INCREMENT,

@@ -34,26 +34,28 @@
                 <h2 class="textMyData">Cadastro</h2>
 
                 <div class="line1">
-                    <input type="text" placeholder="Nome Empresa" class="inputsBig">
-                    <input type="text" placeholder="Razão Social" class="inputsBig">
-                    <input type="text" placeholder="CNPJ" class="inputsBig">
+                    <input type="text" id="inputNomeCompleto" placeholder="Nome Completo" class="inputsBig">
+
+                    <input type="text" id="inputApelido" placeholder="Apelido" class="inputsAverage">
+                    <input type="date" id="inputData" class="inputsAverage" name="" id="">
+
+                    <input type="tel" id=inputTelefone placeholder="Telefone somente numneros" class="inputsAverage">
                 </div>
 
                 <div class="line2">
-                    <input type="text" placeholder="Email" class="inputsBig">
-                    <input type="text" placeholder="Contato" class="inputsAverage">
-                    <input type="text" placeholder="CEP" class="inputsAverage">
+                    <input type="text" id="inputEmailCadastro" placeholder="Email" class="inputsBig">
+                    <input type="password" id="inputSenhaCadastro" placeholder="Senha" class="inputsAverage">
+                    <input type="password" id="inputConfirm" placeholder="Confirme sua senha" class="inputsAverage">
                 </div>
 
                 <div class="line3">
-                    <input type="text" placeholder=" Endereço" class="inputsBig">
-                    <input type="text" placeholder="Numero" class="inputsSmall">
-                    <input type="text" placeholder="Complemento" class="inputsAverage">
+                    <input type="file" id="inputFoto" accept="image/*" class="inputsBig">
 
+                    <input type="text" id="inputBio" placeholder="Bio" name="" id="">
                 </div>
 
                 <div class="line4">
-                    <div class="clickSave" id="clickSave"><a href="#">Salvar</a></div>
+                    <div class="clickEnter" id="clickSave" onclick="login()">Salvar</div>
                     <div class="haveAccount" id="haveAccount">Já tem uma conta? Entre</div>
                 </div>
 
@@ -127,10 +129,13 @@
 
     <div id="containerMain">
         <button id="btnLogin">Clique Aqui</button>
+        <div id="resultado"></div>
     </div>
 
 
     <script src="scriptModal.js"></script>
+    <script src="./js/loginScript.js"></script>
+    <script src="script.js"></script>
 
 </body>
 

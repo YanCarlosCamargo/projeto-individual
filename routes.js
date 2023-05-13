@@ -33,8 +33,13 @@ router.post('/listar', function (req, res, next) {
 });
 
 router.post('/cadastrar', (req, res, next) => {
-    console.log("A requisição do CADASTRAR é a seguinte ", req.body)
-    controller.executarInsert(req, res);
+    console.log("A requisição do CADASTRAR é a seguinte ", req);
+
+    if (req.body != {}) { controller.inserirUsuario(req, res); } else {
+        console.log("Deu errado no routes");
+    }
+
+    //controller.executarInsert(req, res);
     // res.status(200).send({ messageBody: req.body, messageParams: req.params, messageQuery: req.query });
 });
 

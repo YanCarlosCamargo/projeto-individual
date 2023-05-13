@@ -30,4 +30,21 @@ async function executarInsert(req, res) {
     //return result
 }
 
-module.exports = { listar, executarSelect, executarInsert };
+async function inserirUsuario(req, res) {
+    console.log("A requisição do CADASTRAR é a seguinte ", req.body);
+    let email = req.body.email;
+    let senha = req.body.senha;
+    let nome = req.body.nome;
+    let telefone = req.body.telefone;
+    let bio = req.body.bio;
+    let apelido = req.body.apelido;
+    let foto = req.body.foto;
+    let dtNasc = req.body.data;
+
+
+    let result = await bd.inserirUsuario(email, senha, nome, telefone, bio, apelido, foto, dtNasc);
+    res.json(result[0]);
+}
+
+
+module.exports = { listar, executarSelect, executarInsert, inserirUsuario };

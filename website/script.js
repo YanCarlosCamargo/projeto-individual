@@ -1,9 +1,3 @@
-var botao = document.getElementById('botao');
-
-botao.addEventListener('click', async function () {
-    console.log("Clicou no botão!");
-    await cadastrar();
-})
 
 function montarLista(lista) {
     resultado.innerHTML = '';
@@ -15,6 +9,7 @@ function montarLista(lista) {
         ${element.email}<br>
         ${element.bio}<br>
         ${element.telefone}<br>
+        <img src="${element.imgPerfil}" width="70"><br>
         </li>`
 
     }
@@ -31,8 +26,9 @@ function montarPosts(lista) {
         ${element.descPost}<br>
         ${element.dtPost}<br>
         ${element.idPost}<br>
+       <br>
         </li>`
-
+        console.log(element.imgPerfil);
     }
 
 }

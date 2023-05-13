@@ -65,4 +65,17 @@ async function executarInsert(table, values) {
     }
 }
 
-module.exports = { executarSelect, listar, executarInsert }; 
+async function executarQuery(query) {
+    if (query != undefined) {
+        return [row] = await promissePool.query(query)
+    } else {
+        console.log("Informe a query");
+        return ['Informe a query']
+    }
+}
+
+async function inserirUsuario(email, senha, nome, telefone, bio, apelido, foto, dtNasc) {
+    return [row] = await promissePool.query(`INSERT INTO tbUsuario (apelido, nome, dtNasc, email, senha, telefone, dtCadastro, bio, imgPerfil) VALUES ('${apelido}', '${nome}', '${dtNasc}', '${email}', '${senha}', '${telefone}', NOW(), '${bio}', '${foto}')`)
+}
+
+module.exports = { executarSelect, listar, executarInsert, executarQuery, inserirUsuario }; 
