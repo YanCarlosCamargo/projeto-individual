@@ -82,4 +82,8 @@ async function login(email, senha) {
     return [row] = await promissePool.query(`SELECT * FROM tbUsuario WHERE email = '${email}' AND senha = '${senha}'`)
 }
 
-module.exports = { executarSelect, listar, executarInsert, executarQuery, inserirUsuario, login }; 
+async function listarPosts() {
+    return [row] = await promissePool.query(`SELECT * FROM tbPosts`)
+}
+
+module.exports = { executarSelect, listar, executarInsert, executarQuery, inserirUsuario, login, listarPosts }; 

@@ -19,11 +19,12 @@ router.get('/perfil', function (req, res, next) {
 
 
 router.get('/dashboard', function (req, res, next) {
-    req.body.usuario != undefined ?
-        res.sendFile('/website/perfil/dashboard.html', { root: __dirname }) : res.sendFile('website/index.html', { root: __dirname })
+    res.sendFile('/website/perfil/dashboard.html', { root: __dirname });
 });
 
-
+router.get('/listarPosts', function (req, res, next) {
+    controller.listarPosts(req, res);
+});
 
 
 
