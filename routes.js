@@ -3,9 +3,29 @@ var router = express.Router();
 const path = require('path');
 const controller = require('./controller.js');
 
-router.get('/', (req, res, next) => {
-    res.sendFile('index.html', { root: __dirname })
-})
+router.get('/', function (req, res, next) {
+    res.sendFile('website/home.html', { root: __dirname })
+});
+
+router.get('/blog', function (req, res, next) {
+    res.sendFile('blog/index.html')
+});
+
+router.get('/perfil', function (req, res, next) {
+    console.log(__dirname);
+    res.sendFile('website/perfil/conta.html', { root: __dirname })
+    // res.redirect('../')
+});
+
+
+router.get('/dashboard', function (req, res, next) {
+    req.body.usuario != undefined ?
+        res.sendFile('/website/perfil/dashboard.html', { root: __dirname }) : res.sendFile('website/index.html', { root: __dirname })
+});
+
+
+
+
 
 router.post('/listar', function (req, res, next) {
     // console.log("A requisição no routes listar é a seguinte ", req.body)

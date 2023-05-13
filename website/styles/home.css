@@ -1,3 +1,383 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+
+}
+
 #cor {
     color: red;
+}
+
+
+.containerModal {
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    z-index: 15;
+    opacity: 1;
+    position: absolute;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+}
+
+.containerGeral {
+    background-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.loginBtn {
+    cursor: pointer;
+    padding: 7px 25px;
+    color: white;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: #EF8A14;
+}
+
+
+.inputstransparente {
+    width: 65%;
+    margin-left: 80px;
+    padding-top: 2px;
+    outline: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: #1F4662 solid 3px;
+    background: transparent;
+    font-size: 125%
+}
+
+
+
+.cardLogin {
+    background-color: #000000d2;
+    margin: 0 auto;
+    display: flex;
+    width: 60vw;
+    height: 80vh;
+    border-radius: 15px;
+    overflow: hidden;
+    animation: openModal 1s normal;
+
+}
+
+.imgLogin {
+
+    background-image: url(../assets/img/design/maker-login.jpg);
+    background-size: cover;
+    align-items: center;
+    justify-content: left;
+    display: flex;
+    width: 50%;
+    height: 100%;
+    mix-blend-mode: normal;
+
+}
+
+.rightLoginBackground {
+    background-color: #D9D9D9;
+    width: 50%;
+    height: 100%;
+}
+
+.rightLogin {
+    color: #0F1631;
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.buttonClose {
+    display: flex;
+    justify-content: end;
+    width: 98%;
+    height: 5%;
+    padding-top: 15px;
+}
+
+.textLogin {
+    color: #1F4662;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    justify-content: left;
+    font-size: 220%;
+    display: flex;
+    width: 100%;
+    height: 20%;
+    padding-left: 80px;
+}
+
+.textEmail {
+    justify-content: flex-start;
+    color: #1F4662;
+    font-size: 22px;
+    flex-direction: row;
+    display: flex;
+    width: 30%;
+    height: 5%;
+    align-items: center;
+    padding-left: 80px;
+    font-weight: bold;
+    padding-top: 15px;
+}
+
+.textPassword {
+    justify-content: flex-start;
+    color: #1F4662;
+    font-size: 22px;
+    flex-direction: row;
+    display: flex;
+    width: 30%;
+    height: 5%;
+    align-items: center;
+    padding-left: 80px;
+    font-weight: bold;
+    padding-top: 30px;
+}
+
+.cardsClicks {
+    color: white;
+    display: flex;
+    width: 65%;
+    margin-top: 5%;
+    padding-left: 18%;
+    padding-right: 18%;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.clickEnter {
+    align-items: center;
+    justify-content: center;
+    background-color: #1F4662;
+    display: flex;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.clickRecoverPassword {
+
+    padding-left: 5%;
+    padding-right: 5%;
+    align-items: center;
+    justify-content: center;
+    background-color: #1F4662;
+    display: flex;
+    border-radius: 10px;
+    height: 40px;
+}
+
+.registerLink {
+    font-size: 14px;
+
+    width: 100%;
+    height: 5%;
+    align-items: center;
+    color: #070D25;
+}
+
+.registerLink:hover {
+    width: 100%;
+    height: 5%;
+    align-items: center;
+    color: #070D25;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+/* CADASTRO */
+
+.cardRegister {
+    font-family: 'Poppins';
+    margin: 0 auto;
+    width: 60vw;
+    height: 80vh;
+    border-radius: 15px;
+    display: none;
+    overflow: hidden;
+    animation: openModal 1s normal;
+
+}
+
+.topRegister {
+    background-size: cover;
+    background-image: url(img/imgCadastro.png);
+    display: flex;
+    width: 100%;
+    height: 30%;
+    border-radius: 15px 15px 0 0;
+}
+
+.buttonCloseRegister {
+
+    position: absolute;
+    display: flex;
+    width: 3%;
+    height: 3%;
+    z-index: 100;
+    padding-left: 57%;
+    padding-top: 1%;
+}
+
+.sectionRegister {
+
+    font-family: 'Poppins';
+
+    background-color: #D9D9D9;
+
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 70%;
+    border-radius: 0 0 20px 20px;
+}
+
+.textMyData {
+
+    display: flex;
+    justify-content: center;
+    font-size: 200%;
+    color: #1F4662;
+    height: 3%;
+    padding-bottom: 3%;
+}
+
+.inputsRegister {
+
+
+    outline: none;
+    background-color: #D9D9D9;
+    display: flex;
+    width: 30%;
+    height: 30px;
+    margin-left: 80px;
+    padding-top: 1px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: #1F4662 solid 3px;
+}
+
+.line1 {
+
+    font-size: 150px;
+    display: flex;
+    width: 90%;
+    height: 10%;
+    justify-content: space-around;
+}
+
+.line2 {
+    padding-top: 3%;
+
+    display: flex;
+    width: 90%;
+    height: 10%;
+    justify-content: space-around;
+}
+
+.line3 {
+    padding-top: 3%;
+
+    display: flex;
+    width: 90%;
+    height: 10%;
+    justify-content: space-around;
+}
+
+.line4 {
+    align-items: center;
+    padding-top: 5%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+
+}
+
+.inputsSmall {
+    outline: none;
+    background-color: #D9D9D9;
+    display: flex;
+    width: 10%;
+    height: 30px;
+    margin-left: 80px;
+    padding-top: 1px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: #1F4662 solid 3px;
+}
+
+.inputsAverage {
+
+    outline: none;
+    background-color: #D9D9D9;
+    display: flex;
+    width: 15%;
+    height: 30px;
+    margin-left: 80px;
+    padding-top: 1px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: #1F4662 solid 3px;
+}
+
+.inputsBig {
+    font-family: 'Poppins';
+
+    outline: none;
+    background-color: #D9D9D9;
+    display: flex;
+    width: 45%;
+    height: 30px;
+    margin-left: 80px;
+    padding-top: 1px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: #1F4662 solid 3px;
+}
+
+.clickSave {
+    color: white;
+    align-items: center;
+    justify-content: center;
+    background-color: #1F4662;
+    display: flex;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.haveAccount {
+    margin-top: 1%;
+    font-size: 14px;
+    align-items: center;
+    color: #070D25;
+}
+
+.haveAccount:hover {
+    margin-top: 1%;
+    font-size: 14px;
+    align-items: center;
+    color: #070D25;
+    text-decoration: underline;
+    cursor: pointer;
 }

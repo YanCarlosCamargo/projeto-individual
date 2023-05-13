@@ -7,21 +7,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/animation.css">
 </head>
 
 <body>
-    <h1 id="cor"> Abriu o Siteee</h1>
-    Insira um nome: <input id="nome" type="text"><br>
-    Insira um email: <input id="email" type="email"><br>
-    insira uma senha: <input id="senha" type="password"><br>
-    <button id="botao">Clique aqui</button> <button onclick="listarPosts()">Listar Posts</button>
+    <div class="containerModal" id="containerModal">
+
+        <div class="cardRegister modal" id="cardRegister">
+            <div class="topRegister">
+
+                <div class="imgRegister">
+                </div>
+
+                <div class="buttonCloseRegister" onclick="toggleModal()">
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#0F1631"
+                            class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path
+                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                        </svg></a>
+                </div>
+            </div>
 
 
-    <div id="resultado"></div>
+            <div class="sectionRegister">
+
+                <h2 class="textMyData">Cadastro</h2>
+
+                <div class="line1">
+                    <input type="text" placeholder="Nome Empresa" class="inputsBig">
+                    <input type="text" placeholder="Razão Social" class="inputsBig">
+                    <input type="text" placeholder="CNPJ" class="inputsBig">
+                </div>
+
+                <div class="line2">
+                    <input type="text" placeholder="Email" class="inputsBig">
+                    <input type="text" placeholder="Contato" class="inputsAverage">
+                    <input type="text" placeholder="CEP" class="inputsAverage">
+                </div>
+
+                <div class="line3">
+                    <input type="text" placeholder=" Endereço" class="inputsBig">
+                    <input type="text" placeholder="Numero" class="inputsSmall">
+                    <input type="text" placeholder="Complemento" class="inputsAverage">
+
+                </div>
+
+                <div class="line4">
+                    <div class="clickSave" id="clickSave"><a href="#">Salvar</a></div>
+                    <div class="haveAccount" id="haveAccount">Já tem uma conta? Entre</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="cardLogin modal" id="cardLogin">
+            <div class="imgLogin">
+            </div>
+
+            <div class="rightLoginBackground">
+                <div class="rightLogin">
+
+                    <div class="buttonClose" id="btnCloseModal">
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#1F4662"
+                                class="bi bi-x-lg" viewBox="0 0 16 16">
+                                <path
+                                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                            </svg></a>
+                    </div>
+
+                    <div class="textLogin">
+                        <h2>Login</h2>
+                    </div>
+
+                    <div class="textEmail">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#1F4662"
+                            class="bi bi-envelope" viewBox="0 0 16 16">
+                            <path
+                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                        </svg>
+                        <a style="margin: 10px;"></a>
+                        <a>Email</a>
+                    </div>
+
+                    <div>
+                        <input type="text" placeholder="" id="inputEmail" class="inputstransparente">
+                        <div></div>
+                    </div>
+
+                    <div class="textPassword">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#1F4662"
+                            class="bi bi-chat-square-dots" viewBox="0 0 16 16">
+                            <path
+                                d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                            <path
+                                d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                        </svg>
+                        <a style="margin: 10px;"></a>
+                        <a>Senha</a>
+                    </div>
+
+                    <div>
+                        <input type="password" placeholder="" id="inputSenha" class="inputstransparente">
+                        <div></div>
+                    </div>
+
+                    <div class="cardsClicks">
+                        <div class="clickEnter" onclick="login()">Entrar</div>
+                        <div class="clickRecoverPassword">Recuperar Senha</div>
+                        <div class="registerLink" id="RegisterLink">
+                            Ainda não tem uma conta? Cadastre-se
+                        </div>
+                    </div>
 
 
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <script src="script.js"></script>
+    <div id="containerMain">
+        <button id="btnLogin">Clique Aqui</button>
+    </div>
+
+
+    <script src="scriptModal.js"></script>
+
 </body>
 
 </html>
