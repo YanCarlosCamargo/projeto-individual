@@ -83,7 +83,13 @@ async function login(email, senha) {
 }
 
 async function listarPosts() {
-    return [row] = await promissePool.query(`SELECT * FROM tbPosts`)
+    var resultado = {
+        likes: [],
+        posts: []
+    }
+    resultado.likes = await promissePool.query(`SELECT * from asslikes`);
+    resultado.posts = await promissePool.query(`SELECT * FROM tbPosts`);
+    return resultado
 }
 
 module.exports = { executarSelect, listar, executarInsert, executarQuery, inserirUsuario, login, listarPosts }; 

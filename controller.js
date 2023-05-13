@@ -56,7 +56,8 @@ async function login(req, res) {
 
 async function listarPosts(req, res) {
     let result = await bd.listarPosts();
-    res.json(result[0]);
+    res.json(result);
 }
+
 
 module.exports = { listar, executarSelect, executarInsert, inserirUsuario, login, listarPosts };
