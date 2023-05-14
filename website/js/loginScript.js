@@ -19,9 +19,11 @@ async function login() {
         },
         body: JSON.stringify(body)
     }).then(response => response.json()).then(row => {
-        console.log(row[0])
+        console.log("A resposta é ", row[0])
         if (row[0]) {
-            alert('Login realizado com sucesso')
+            sessionStorage.usuario = row[0];
+            alert('Login realizado com sucesso');
+            window.location.href = '/dashboard';
         } else {
             alert('Email ou senha incorretos')
         }
