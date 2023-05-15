@@ -20,11 +20,11 @@
                 </div>
 
                 <div class="buttonCloseRegister" onclick="toggleModal()">
-                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#0F1631"
-                            class="bi bi-x-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-                        </svg></a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#0F1631" class="bi bi-x-lg"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                    </svg>
                 </div>
             </div>
 
@@ -125,16 +125,52 @@
         </div>
     </div>
 
-    <div id="containerMain">
-        <button id="btnLogin">Clique Aqui</button>
-        <div id="resultado"></div>
+
+
+
+    <div id="containerMain" class="containerMain">
+        <div class="navContainer">
+            <button id="btnLogin">Login</button>
+        </div>
+
+        <div class="heroContainer">
+            <div class="fraseWrapper">
+                <div class="frasePrincipal">
+                    <div id="resultado"></div>
+                </div>
+                <img id="arduinoIcon" src="./assets/img/design/arduinoIcon.png" alt="">
+            </div>
+        </div>
+
+
+        <div class="tresCards">
+            <div class="cardOferta img1">
+                <div class="cardOfertaFrase">
+                    Um ambiente próprio para testes e brainstorm
+                </div>
+            </div>
+            <div class="cardOferta img2">
+                <div class="cardOfertaFrase">
+                    Plataforma Open-Source onde todos contribuem
+                </div>
+            </div>
+            <div class="cardOferta img3">
+                <div class="cardOfertaFrase">
+                    Grandes sucessos vieram de grandes tentativas
+                </div>
+            </div>
+        </div>
+
+
+        <div class="conteudo2">
+        </div>
+
     </div>
-
-
     <script src="scriptModal.js"></script>
     <script src="./js/loginScript.js"></script>
     <script src="script.js"></script>
-
+    <!-- 
+-->
 </body>
 
 </html>

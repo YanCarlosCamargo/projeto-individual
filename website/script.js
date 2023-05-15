@@ -64,7 +64,7 @@ async function listarPosts() {
         return response.json()
     }).then(data => {
         console.log(data[0]);
-        montarPosts(data[0]);
+        //  montarPosts(data[0]);
     });
 
 }
