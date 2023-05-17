@@ -1,0 +1,81 @@
+@font-face {
+    font-family: Supera Gothic;
+    src: url(../assets/font/SuperaGothic-Regular.otf);
+}
+
+@font-face {
+    font-family: Supera Gothic;
+    src: url(../assets/font/SuperaGothic-Bold.otf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Supera Gothic;
+    src: url(../assets/font/SuperaGothic-Italic.otf);
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Supera Gothic;
+    src: url(../assets/font/SuperaGothic-BoldItalic.otf);
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Supera Gothic;
+    src: url(../assets/font/SuperaGothic-Light.otf);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Supera Gothic;
+    src: url(../assets/font/SuperaGothic-LightItalic.otf);
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Supera Gothic;
+    src: url(../assets/font/SuperaGothic-Medium.otf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Supera Gothic;
+    src: url(../assets/font/SuperaGothic-MediumItalic.otf);
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Supera Gothic;
+    src: url(../assets/font/SuperaGothic-SemiBold.otf);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Supera Gothic;
+    src: url(../assets/font/SuperaGothic-SemiBoldItalic.otf);
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Supera Gothic;
+    src: url(../assets/font/SuperaGothic-Thin.otf);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: Supera Gothic;
+    src: url(../assets/font/SuperaGothic-ThinItalic.otf);
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Supera Gothic;
+    src: url(../assets/font/SuperaGothic-ExtraBold.otf);
+    font-weight: 800;
+}

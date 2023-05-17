@@ -1,17 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maker | Blog</title>
+    <link rel="stylesheet" href="../styles/blogHome.css">
+    <link rel="stylesheet" href="../styles/fonts.css">
 </head>
 
 <body>
-    Aqui estamos na pagina do dashboard
-    <div id="resultado"></div>
+
+    <div class="containerMain">
+        <div class="navContainer">
+            <div class="logoContainer">
+                <img src="./assets/img/design/logo.png" alt="">
+                <span id="logoText">MAKERBLOG</span>
+            </div>
+
+            <div class="containerLinksNav">
+
+                <div class="linkNav">Oque é Arduino</div>
+                <div class="linkNav">Oque é Arduino</div>
+                <div class="linkNav">Oque é Arduino</div>
+
+                <div class="perfilWrapper">
+                    <div class="loginContainer linkNav" id="btnLogin">
+                        <div class="btnLogin">Perfil</div>
+                        <img src="assets/img/profile/profile.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="containerConteudo">
+            <div class="containerAbaLateral">
+                <img id="imgProfileLateral" src="../assets/img/profile/profile.png" alt="">
+                <label id="labelNome">Roberto Turbiani</label>
+                <label class="labelTitulo">Mais Comentados</label>
+            </div>
+
+            <div class="containerFeed">
+
+                <div class="wrapperPosts">
+                    <div class="wrapperNovoPost">
+                        <input type="text" placeholder="Novo Post">
+                    </div>
+                    <div style="height: 50px; margin-top: 7%;"></div>
+                    <span id="resultado" style="display: flex; align-items: center; flex-direction: column;">
+
+                        <div class="containerPost">
+                            <div class="wrapperImgPost">
+                                <img class="imgPost" src="../assets/img/posts/post-example-1.png" alt="">
+                            </div>
+                            <div class="wrapperInfoPost">
+                                <div class="wrapperDataTitulo">
+                                    <div class="badgeData">
+                                        05<br>
+                                        06
+                                    </div>
+                                    <label class="tituloPost">Festa colorida Usando Fluido</label>
+                                </div>
+                                <label class="labelAutor">Por: zézin</label>
+                                <label class="descricaoPost">é simplesmente um texto fictício da indústria tipográfica e
+                                    de
+                                    impressão. Lorem Ipsum tem sido o texto fictício padrão da indústria desde os anos
+                                    1500,
+                                    quando um impressor desconhecido pegou uma galera de tipos e os embaralhou para
+                                    fazer um
+                                    livro de espécimes de tipos. Ele sobreviveu não apenas a cinco séculos, mas também
+                                    ao
+                                    salto para a composição eletrônica, permanecendo essencialmente inalterado.
+                                </label>
+                                <div class="badgeLikesPost">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path fill="red"
+                                            d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53L12 21.35Z" />
+                                    </svg>
+                                    <label class="labelLikesPost">397</label>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                <div class="wrapperNoticias">
+                    sdfaf
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
     <script src="../js/listarPosts.js"></script>
+
 </body>
 
 </html>

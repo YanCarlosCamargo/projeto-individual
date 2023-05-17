@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="./styles/animation.css">
 </head>
@@ -126,17 +127,32 @@
     </div>
 
 
-
-
     <div id="containerMain" class="containerMain">
         <div class="navContainer">
-            <button id="btnLogin">Login</button>
+            <div class="logoContainer">
+                <img src="./assets/img/design/logo.png" alt="">
+                <span id="logoText">MAKERBLOG</span>
+            </div>
+
+            <div class="containerLinksNav">
+
+                <div class="linkNav">Oque é Arduino</div>
+                <div class="linkNav">Oque é Arduino</div>
+                <div class="linkNav">Oque é Arduino</div>
+
+                <div class="perfilWrapper">
+                    <div class="loginContainer linkNav" id="btnLogin">
+                        <div class="btnLogin">Login</div>
+                        <img src="assets/img/profile/profile.png" alt="">
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="heroContainer">
             <div class="fraseWrapper">
                 <div class="frasePrincipal">
-                    <div id="resultado"></div>
+                    <div id="resultado" style="color: aliceblue; font-size: medium;"></div>
                 </div>
                 <img id="arduinoIcon" src="./assets/img/design/arduinoIcon.png" alt="">
             </div>
