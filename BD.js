@@ -92,4 +92,8 @@ async function listarPosts() {
     return resultado
 }
 
-module.exports = { executarSelect, listar, executarInsert, executarQuery, inserirUsuario, login, listarPosts }; 
+async function inserirPost(idUsuario, titulo, desc, imgLink) {
+    return [row] = await promissePool.query(`INSERT INTO tbPosts (fkAutor, titulo, descPost, dtPost, imgPost) VALUES ('${idUsuario}', '${titulo}', '${desc}', now(), '${imgLink}')`)
+}
+
+module.exports = { executarSelect, listar, executarInsert, executarQuery, inserirUsuario, login, listarPosts, inserirPost }; 

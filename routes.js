@@ -49,5 +49,9 @@ router.post('/cadastrar', (req, res, next) => {
     // res.status(200).send({ messageBody: req.body, messageParams: req.params, messageQuery: req.query });
 });
 
+router.post('/inserirPost', (req, res, next) => {
+    controller.inserirPost(req, res);
+});
+
 
 module.exports = router;

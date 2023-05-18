@@ -1,0 +1,160 @@
+.containerPostExpandido {
+    display: none;
+    min-height: 37vh;
+    width: 50vw;
+    background-color: #ffffff;
+    margin-top: 3%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1%;
+    border-radius: 24px;
+
+}
+
+
+.wrapperImgPostExpandido {
+    display: flex;
+    width: 40%;
+    height: 100%;
+    background-color: antiquewhite;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.imgPostExpandido {
+    width: 100%;
+    height: 100%;
+}
+
+
+.wrapperInfoPostExpandido {
+    width: 60%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+
+}
+
+.wrapperDataTituloExpandido {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.badgeDataExpandido {
+    background-color: #E9EBF3;
+    border-radius: 10px;
+    padding: 1% 2%;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1977F3;
+    border-radius: 10px;
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.tituloPostExpandido {
+    font-family: 'Supera Gothic';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    width: 80%;
+    line-height: 107.9%;
+}
+
+.labelAutorExpandido {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    align-items: center;
+    width: 100%;
+}
+
+.descricaoPostExpandido {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    align-items: flex-start;
+    width: 100%;
+    height: 35%;
+    overflow-y: scroll;
+}
+
+.badgeLikesPostExpandido {
+    background-color: #E9EBF3;
+    border-radius: 10px;
+    padding: 1% 2%;
+    width: min-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.labelLikesPostExpandido {
+    font-family: 'Supera Gothic';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 28px;
+    margin-left: 5%;
+    text-align: center;
+    cursor: pointer;
+    color: #000000;
+}
+
+#btnNewPost {
+    background: #1977F3;
+    border-radius: 10px;
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 1% 2%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+input[type=file] {
+    display: none;
+}
+
+.btn-file {
+    display: inline-block;
+    cursor: pointer;
+    background-color: #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.btn-file:hover {
+    background-color: #ddd;
+}
+
+.btn-file:active {
+    background-color: #aaa;
+}

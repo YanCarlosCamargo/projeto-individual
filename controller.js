@@ -59,5 +59,14 @@ async function listarPosts(req, res) {
     res.json(result);
 }
 
+async function inserirPost(req, res) {
+    let idUsuario = req.body.idUsuario;
+    let titulo = req.body.titulo;
+    let desc = req.body.descricao;
+    let imgLink = req.body.img;
+    let result = await bd.inserirPost(idUsuario, titulo, desc, imgLink);
+    res.json(result);
+}
 
-module.exports = { listar, executarSelect, executarInsert, inserirUsuario, login, listarPosts };
+
+module.exports = { listar, executarSelect, executarInsert, inserirUsuario, login, listarPosts, inserirPost };

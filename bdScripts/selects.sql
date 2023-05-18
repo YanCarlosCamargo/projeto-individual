@@ -3,9 +3,9 @@ USE projetoIndividual;
 -- SELECT * FROM tbUsuario;
 
 -- DESC tbUsuario;
--- DESC tbPosts;
+ DESC tbPosts;
 -- SHOW tables;
- DESC asslikes;
+-- DESC asslikes;
 
 SELECT * from tbPosts;
 

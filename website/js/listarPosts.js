@@ -5,7 +5,7 @@ async function buscarPosts() {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
-        },
+        }
     }).then(response => response.json()).then(row => {
         console.log(row.posts[0])
         if (row.posts[0]) {
@@ -16,6 +16,7 @@ async function buscarPosts() {
 }
 
 function listarPost(listaPosts, listaLikes) {
+    listaPosts = listaPosts.reverse();
     resultado.innerHTML = '';
     var likes = 0;
     for (let i = 0; i < listaPosts.length; i++) {
@@ -25,8 +26,16 @@ function listarPost(listaPosts, listaLikes) {
                 likes += listaLikes[l].qtdLikes;
             }
         }
+        console.log(listaPosts[i].dtPost);
+        var mes = listaPosts[i].dtPost.split('-')[1];
+        console.log("mes ", mes);
+        var dia = listaPosts[i].dtPost.split('-')[2].split('T')[0];
+        console.log("dia ", dia);
         console.log(likes);
         const element = listaPosts[i];
+
+        // data = element.dataPost.split('-');
+
 
         console.log(element);
         resultado.innerHTML += `
@@ -38,8 +47,8 @@ function listarPost(listaPosts, listaLikes) {
                             <div class="wrapperInfoPost">
                                 <div class="wrapperDataTitulo">
                                     <div class="badgeData">
-                                        05<br>
-                                        06
+                                        ${mes}<br>
+                                        ${dia}
                                     </div>
                                     <label class="tituloPost">${element.titulo}</label>
                                 </div>

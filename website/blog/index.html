@@ -8,6 +8,7 @@
     <title>Maker | Blog</title>
     <link rel="stylesheet" href="../styles/blogHome.css">
     <link rel="stylesheet" href="../styles/fonts.css">
+    <link rel="stylesheet" href="../styles/teste.css">
 </head>
 
 <body>
@@ -44,9 +45,28 @@
             <div class="containerFeed">
 
                 <div class="wrapperPosts">
-                    <div class="wrapperNovoPost">
-                        <input type="text" placeholder="Novo Post">
+                    <input class="imgPostExpandido" id="input-file" placeholder="Escolha a imagem do seu Post"
+                        type="file" accept="image/*"></input>
+                    <div class="containerPostExpandido">
+                        <div class="wrapperImgPostExpandido" id="wrapperImg">
+
+                        </div>
+                        <div class="wrapperInfoPostExpandido">
+                            <div class="wrapperDataTituloExpandido">
+                                <input placeholder="Insira o Titulo do post" class="tituloPostExpandido"></input>
+                            </div>
+                            <input type="text" placeholder="Insira a descrição do novo post"
+                                class="descricaoPostExpandido">
+                            </input>
+                            <button class="btn-file">Selecione a imagem</button>
+                            <button id="btnNewPost" onclick="newPost()">Publicar Novo Post</button>
+                        </div>
                     </div>
+
+                    <div id="wrapperNovoPost" class="wrapperNovoPost">
+                        <p>Novo Post</p>
+                    </div>
+
                     <div style="height: 50px; margin-top: 7%;"></div>
                     <span id="resultado" style="display: flex; align-items: center; flex-direction: column;">
 
@@ -92,7 +112,87 @@
 
     </div>
 
+    <script>
+        const clientId = '83f26f78f9124b6';
 
+        var wrapperNovoPost = document.getElementById('wrapperNovoPost');
+
+        wrapperNovoPost.addEventListener('click', () => {
+            wrapperNovoPost.style.display = 'none';
+            document.querySelector('.containerPostExpandido').style.display = 'flex';
+        })
+
+
+        async function subirImagem(url, options) {
+            console.log("subindo Imagem");
+            const response = await fetch(url, options);
+            const data = await response.json();
+            console.log(data);
+            return data;
+        }
+        const input = document.getElementById('input-file');
+        const btn = document.querySelector('.btn-file');
+
+        btn.addEventListener('click', () => {
+            input.click();
+        });
+
+        input.addEventListener('change', () => {
+            var img = input.files[0];
+            console.log(img);
+            wrapperImg.innerHTML = `<img class="imgPostExpandido" src="${URL.createObjectURL(img)}" alt="">`
+        })
+
+        async function newPost() {
+            const titulo = document.querySelector('.tituloPostExpandido').value;
+            const descricao = document.querySelector('.descricaoPostExpandido').value;
+            const img = document.querySelector('.imgPostExpandido').src;
+
+            var varFoto = new FormData();
+            varFoto.append('image', document.getElementById('input-file').files[0]);
+
+            const body = {
+                idUsuario: 1,
+                titulo,
+                descricao,
+                img
+            }
+
+            await subirImagem('https://api.imgur.com/3/upload', {
+                method: 'POST',
+                body: varFoto,
+                headers: {
+                    'Authorization': `Client-ID ${clientId}`,
+                }
+            }).then(data => {
+                if (data.success) {
+                    console.log("data Sucess??? ", data.success);
+                    body.img = data.data.link;
+                } else {
+                    console.log("erro, não subiu a imagem", data);
+                    return false
+                }
+            }).then(() => {
+                fetch('/inserirPost', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(body),
+                }).then(response => {
+                    console.log(response);
+                    if (response.status == 200) {
+                        console.log("post inserido com sucesso");
+                        buscarPosts()
+                    } else {
+                        console.log("erro ao inserir post");
+                    }
+                })
+            })
+        }
+        console.log("id sessão ", sessionStorage);
+
+    </script>
 
     <script src="../js/listarPosts.js"></script>
 

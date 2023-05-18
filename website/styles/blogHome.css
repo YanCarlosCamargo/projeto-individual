@@ -13,6 +13,44 @@ body {
     padding: 0;
 }
 
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #FFFFFF #E9EBF3;
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+    width: 6px;
+    width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #E9EBF3;
+}
+
+*::-webkit-scrollbar-track:hover {
+    background-color: #E9EBF3;
+}
+
+*::-webkit-scrollbar-track:active {
+    background-color: #E9EBF3;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #FFFFFF;
+}
+
+*::-webkit-scrollbar-thumb:active {
+    background-color: #FFFFFF;
+}
+
 .containerMain {
     width: 100%;
     height: 100vh;
@@ -237,6 +275,23 @@ body {
 }
 
 
+.wrapperNovoPostExpandido {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 35%;
+    padding: 1%;
+    height: 15%;
+    border-radius: 10px;
+    overflow-y: visible;
+    position: fixed;
+
+    -webkit-box-shadow: 0px 0px 34px 8px rgba(0, 0, 0, 0.18);
+    -moz-box-shadow: 0px 0px 34px 8px rgba(0, 0, 0, 0.18);
+    box-shadow: 0px 0px 34px 8px rgba(0, 0, 0, 0.089);
+}
+
 
 .wrapperPosts {
     overflow-y: scroll;
@@ -266,44 +321,6 @@ body {
     padding: 1%;
     border-radius: 24px;
 
-}
-
-/* Firefox */
-* {
-    scrollbar-width: thin;
-    scrollbar-color: #FFFFFF #E9EBF3;
-}
-
-/* Chrome, Edge and Safari */
-*::-webkit-scrollbar {
-    width: 6px;
-    width: 6px;
-}
-
-*::-webkit-scrollbar-track {
-    border-radius: 5px;
-    background-color: #E9EBF3;
-}
-
-*::-webkit-scrollbar-track:hover {
-    background-color: #E9EBF3;
-}
-
-*::-webkit-scrollbar-track:active {
-    background-color: #E9EBF3;
-}
-
-*::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background-color: #FFFFFF;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-    background-color: #FFFFFF;
-}
-
-*::-webkit-scrollbar-thumb:active {
-    background-color: #FFFFFF;
 }
 
 
