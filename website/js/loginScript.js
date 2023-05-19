@@ -22,8 +22,11 @@ async function login() {
         console.log("A resposta é ", row[0])
         if (row[0]) {
             sessionStorage.usuario = row[0];
+            console.log("O usuario é ", row[0]);
             alert('Login realizado com sucesso');
-            window.location.href = '/dashboard';
+            sessionStorage.apelidoUsuario = row[0].apelido;
+            definirStorage(row[0])
+            //  window.location.href = '/blog';
         } else {
             alert('Email ou senha incorretos')
         }
@@ -97,7 +100,9 @@ async function cadastro() {
         }).then(response => {
             if (response.status == 200) {
                 alert('Cadastro realizado com sucesso');
-                listar();
+                const data = response.json();
+                definirStorage(data[0]);
+                window.location.href = "/blog"
             } else {
                 alert('Erro ao cadastrar');
             }
@@ -116,4 +121,23 @@ async function cadastro() {
         console.log(data);
         return data;
     }
+
+}
+
+function definirStorage(data) {
+    console.log("registrando Storage");
+    console.log(data);
+    sessionStorage.apelidoUsuario = data.apelido;
+    sessionStorage.idUsuario = data.id;
+    sessionStorage.nomeUsuario = data.nome;
+    sessionStorage.emailUsuario = data.email;
+    sessionStorage.fotoUsuario = data.foto;
+    sessionStorage.telefoneUsuario = data.telefone;
+    sessionStorage.dataUsuario = data.data;
+    sessionStorage.bioUsuario = data.bio;
+    sessionStorage.senhaUsuario = data.senha;
+    sessionStorage.dtCadastroUsuario = data.dtCadastro;
+    sessionStorage.dtNascUsuario = data.dtNasc;
+    sessionStorage.setItem('usuario', JSON.stringify(data));
+
 }

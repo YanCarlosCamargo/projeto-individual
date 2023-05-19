@@ -28,7 +28,7 @@
 
                 <div class="perfilWrapper">
                     <div class="loginContainer linkNav" id="btnLogin">
-                        <div class="btnLogin">Perfil</div>
+                        <div class="btnLogin" id="navName">Perfil</div>
                         <img src="assets/img/profile/profile.png" alt="">
                     </div>
                 </div>
@@ -113,6 +113,8 @@
     </div>
 
     <script>
+
+        navName.innerHTML = sessionStorage.nome
         const clientId = '83f26f78f9124b6';
 
         var wrapperNovoPost = document.getElementById('wrapperNovoPost');
