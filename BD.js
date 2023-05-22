@@ -88,7 +88,7 @@ async function listarPosts() {
         posts: []
     }
     resultado.likes = await promissePool.query(`SELECT * from asslikes`);
-    resultado.posts = await promissePool.query(`SELECT * FROM tbPosts`);
+    resultado.posts = await promissePool.query(`SELECT *, nome as Autor from tbPosts join tbUsuario on fkAutor = tbUsuario.idUsuario;`);
     return resultado
 }
 
@@ -96,4 +96,12 @@ async function inserirPost(idUsuario, titulo, desc, imgLink) {
     return [row] = await promissePool.query(`INSERT INTO tbPosts (fkAutor, titulo, descPost, dtPost, imgPost) VALUES ('${idUsuario}', '${titulo}', '${desc}', now(), '${imgLink}')`)
 }
 
-module.exports = { executarSelect, listar, executarInsert, executarQuery, inserirUsuario, login, listarPosts, inserirPost }; 
+async function inserirLike(idUsuario, idPost) {
+    return [row] = await promissePool.query(`INSERT INTO asslikes (fkUsuario, fkPost, qtdLikes) VALUES ('${idUsuario}', '${idPost}', 1)`)
+}
+
+async function removerLike(idUsuario, idPost) {
+    return [row] = await promissePool.query(`DELETE FROM asslikes WHERE fkUsuario = '${idUsuario}' AND fkPost = '${idPost}'`)
+}
+
+module.exports = { executarSelect, listar, executarInsert, executarQuery, inserirUsuario, login, listarPosts, inserirPost, inserirLike, removerLike }; 

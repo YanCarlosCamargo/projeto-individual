@@ -12,6 +12,12 @@
 </head>
 
 <body>
+    <div class="overlay" id="loadingOverlay">
+        <div class="overlay__inner">
+            <div class="overlay__content" i><span class="spinner"></span></div>
+        </div>
+    </div>
+
 
     <div class="containerMain">
         <div class="navContainer">
@@ -22,14 +28,18 @@
 
             <div class="containerLinksNav">
 
-                <div class="linkNav">Oque é Arduino</div>
+                <div class="linkNav" onclick="buscarPosts()">Recarregar Feed</div>
                 <div class="linkNav">Oque é Arduino</div>
                 <div class="linkNav">Oque é Arduino</div>
 
                 <div class="perfilWrapper">
                     <div class="loginContainer linkNav" id="btnLogin">
                         <div class="btnLogin" id="navName">Perfil</div>
-                        <img src="assets/img/profile/profile.png" alt="">
+                        <span id="imgProfile" src="../assets/img/profile/profile.png" alt=""></span>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdownItem">Perfil</div>
+                        <div class="dropdownItem" id="btnLogout">Sair</div>
                     </div>
                 </div>
             </div>
@@ -37,7 +47,7 @@
 
         <div class="containerConteudo">
             <div class="containerAbaLateral">
-                <img id="imgProfileLateral" src="../assets/img/profile/profile.png" alt="">
+                <span id="imgProfileLateral" src="../assets/img/profile/profile.png" alt=""></span>
                 <label id="labelNome">Roberto Turbiani</label>
                 <label class="labelTitulo">Mais Comentados</label>
             </div>
@@ -48,6 +58,7 @@
                     <input class="imgPostExpandido" id="input-file" placeholder="Escolha a imagem do seu Post"
                         type="file" accept="image/*"></input>
                     <div class="containerPostExpandido">
+
                         <div class="wrapperImgPostExpandido" id="wrapperImg">
 
                         </div>
@@ -67,6 +78,7 @@
                         <p>Novo Post</p>
                     </div>
 
+
                     <div style="height: 50px; margin-top: 7%;"></div>
                     <span id="resultado" style="display: flex; align-items: center; flex-direction: column;">
 
@@ -83,13 +95,16 @@
                                     <label class="tituloPost">Festa colorida Usando Fluido</label>
                                 </div>
                                 <label class="labelAutor">Por: zézin</label>
-                                <label class="descricaoPost">é simplesmente um texto fictício da indústria tipográfica e
+                                <label class="descricaoPost">é simplesmente um texto fictício da indústria
+                                    tipográfica e
                                     de
-                                    impressão. Lorem Ipsum tem sido o texto fictício padrão da indústria desde os anos
+                                    impressão. Lorem Ipsum tem sido o texto fictício padrão da indústria desde os
+                                    anos
                                     1500,
                                     quando um impressor desconhecido pegou uma galera de tipos e os embaralhou para
                                     fazer um
-                                    livro de espécimes de tipos. Ele sobreviveu não apenas a cinco séculos, mas também
+                                    livro de espécimes de tipos. Ele sobreviveu não apenas a cinco séculos, mas
+                                    também
                                     ao
                                     salto para a composição eletrônica, permanecendo essencialmente inalterado.
                                 </label>
@@ -114,89 +129,12 @@
 
     <script>
 
-        navName.innerHTML = sessionStorage.nome
-        const clientId = '83f26f78f9124b6';
 
-        var wrapperNovoPost = document.getElementById('wrapperNovoPost');
-
-        wrapperNovoPost.addEventListener('click', () => {
-            wrapperNovoPost.style.display = 'none';
-            document.querySelector('.containerPostExpandido').style.display = 'flex';
-        })
-
-
-        async function subirImagem(url, options) {
-            console.log("subindo Imagem");
-            const response = await fetch(url, options);
-            const data = await response.json();
-            console.log(data);
-            return data;
-        }
-        const input = document.getElementById('input-file');
-        const btn = document.querySelector('.btn-file');
-
-        btn.addEventListener('click', () => {
-            input.click();
-        });
-
-        input.addEventListener('change', () => {
-            var img = input.files[0];
-            console.log(img);
-            wrapperImg.innerHTML = `<img class="imgPostExpandido" src="${URL.createObjectURL(img)}" alt="">`
-        })
-
-        async function newPost() {
-            const titulo = document.querySelector('.tituloPostExpandido').value;
-            const descricao = document.querySelector('.descricaoPostExpandido').value;
-            const img = document.querySelector('.imgPostExpandido').src;
-
-            var varFoto = new FormData();
-            varFoto.append('image', document.getElementById('input-file').files[0]);
-
-            const body = {
-                idUsuario: 1,
-                titulo,
-                descricao,
-                img
-            }
-
-            await subirImagem('https://api.imgur.com/3/upload', {
-                method: 'POST',
-                body: varFoto,
-                headers: {
-                    'Authorization': `Client-ID ${clientId}`,
-                }
-            }).then(data => {
-                if (data.success) {
-                    console.log("data Sucess??? ", data.success);
-                    body.img = data.data.link;
-                } else {
-                    console.log("erro, não subiu a imagem", data);
-                    return false
-                }
-            }).then(() => {
-                fetch('/inserirPost', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(body),
-                }).then(response => {
-                    console.log(response);
-                    if (response.status == 200) {
-                        console.log("post inserido com sucesso");
-                        buscarPosts()
-                    } else {
-                        console.log("erro ao inserir post");
-                    }
-                })
-            })
-        }
         console.log("id sessão ", sessionStorage);
 
     </script>
 
-    <script src="../js/listarPosts.js"></script>
+    <script src="../js/posts.js"></script>
 
 </body>
 

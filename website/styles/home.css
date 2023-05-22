@@ -137,11 +137,25 @@ body {
     width: 50px;
 }
 
+.imgWrapper {
+    display: flex;
+    align-self: center;
+    width: 40px;
+    height: 40px;
+    margin-right: 2.5%;
+    border-radius: 100px;
+    z-index: 10;
+    background-image: url(../assets/img/design/user.png);
+    background-size: cover;
+}
+
 .loginContainer img {
     display: flex;
     align-self: center;
     width: 40px;
+    height: 40px;
     margin-right: 2.5%;
+    border-radius: 100px;
 }
 
 .heroContainer {

@@ -65,8 +65,25 @@ async function inserirPost(req, res) {
     let desc = req.body.descricao;
     let imgLink = req.body.img;
     let result = await bd.inserirPost(idUsuario, titulo, desc, imgLink);
+    console.log("Post inserido com sucesso! ", result);
+    res.json(result);
+}
+
+async function inserirLike(req, res) {
+    let idUsuario = req.body.idUsuario;
+    let idPost = req.body.idPost;
+    let result = await bd.inserirLike(idUsuario, idPost);
+    console.log("Like inserido com sucesso! ", result);
+    res.json(result);
+}
+
+async function removerLike(req, res) {
+    let idUsuario = req.body.idUsuario;
+    let idPost = req.body.idPost;
+    let result = await bd.removerLike(idUsuario, idPost);
+    console.log("Like removido com sucesso! ", result);
     res.json(result);
 }
 
 
-module.exports = { listar, executarSelect, executarInsert, inserirUsuario, login, listarPosts, inserirPost };
+module.exports = { listar, executarSelect, executarInsert, inserirUsuario, login, listarPosts, inserirPost, inserirLike, removerLike };

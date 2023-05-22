@@ -6,7 +6,14 @@ btnHaveAccount = document.getElementById("haveAccount");
 registerNavLink = document.getElementById("registerNavLink");
 
 btnLogin.addEventListener("click", function () {
-    abrirLogin();
+    console.log(sessionStorage);
+    if (!sessionStorage.idUsuario) {
+        abrirLogin();
+    } else {
+        window.location.href = '/blog';
+    }
+
+
 });
 
 

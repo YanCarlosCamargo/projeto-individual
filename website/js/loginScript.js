@@ -3,6 +3,7 @@
 const clientId = '83f26f78f9124b6';
 
 async function login() {
+
     var email = document.getElementById('inputEmail').value;
     var senha = document.getElementById('inputSenha').value;
 
@@ -26,12 +27,13 @@ async function login() {
             alert('Login realizado com sucesso');
             sessionStorage.apelidoUsuario = row[0].apelido;
             definirStorage(row[0])
-            //  window.location.href = '/blog';
+            window.location.href = '/blog';
         } else {
             alert('Email ou senha incorretos')
         }
 
     }).catch(console.log);
+
 }
 
 
@@ -128,16 +130,17 @@ function definirStorage(data) {
     console.log("registrando Storage");
     console.log(data);
     sessionStorage.apelidoUsuario = data.apelido;
-    sessionStorage.idUsuario = data.id;
+    sessionStorage.idUsuario = data.idUsuario;
     sessionStorage.nomeUsuario = data.nome;
     sessionStorage.emailUsuario = data.email;
-    sessionStorage.fotoUsuario = data.foto;
+    sessionStorage.fotoUsuario = data.imgPerfil;
     sessionStorage.telefoneUsuario = data.telefone;
-    sessionStorage.dataUsuario = data.data;
     sessionStorage.bioUsuario = data.bio;
     sessionStorage.senhaUsuario = data.senha;
     sessionStorage.dtCadastroUsuario = data.dtCadastro;
     sessionStorage.dtNascUsuario = data.dtNasc;
     sessionStorage.setItem('usuario', JSON.stringify(data));
 
+    console.log("Session Storage ", sessionStorage);
+    return true
 }

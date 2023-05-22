@@ -1,3 +1,15 @@
+console.log(sessionStorage);
+if (!sessionStorage.idUsuario) {
+    console.log("Não tem idUsuario na sessão, redirecionando para o login");
+    //window.location.href = '/';
+} else {
+    console.log("Tem idUsuario na sessão, redirecionando para o feed");
+    divLogin.innerHTML = "Entrar";
+    imgPerfil.src = sessionStorage.fotoUsuario ? "block" : "none";
+    imgWrapper.style.backgroundImage = `url(${sessionStorage.fotoUsuario})`;
+}
+
+
 
 function montarLista(lista) {
     resultado.innerHTML = '';

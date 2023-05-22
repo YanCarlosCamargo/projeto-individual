@@ -1,6 +1,5 @@
 const express = require('express');
 var router = express.Router();
-const path = require('path');
 const controller = require('./controller.js');
 
 router.get('/', function (req, res, next) {
@@ -40,18 +39,21 @@ router.post('/login', function (req, res, next) {
 
 router.post('/cadastrar', (req, res, next) => {
     console.log("A requisição do CADASTRAR é a seguinte ", req);
-
     if (req.body != {}) { controller.inserirUsuario(req, res); } else {
         console.log("Deu errado no routes");
     }
-
-    //controller.executarInsert(req, res);
-    // res.status(200).send({ messageBody: req.body, messageParams: req.params, messageQuery: req.query });
 });
 
 router.post('/inserirPost', (req, res, next) => {
     controller.inserirPost(req, res);
 });
 
+router.post('/inserirLike', (req, res, next) => {
+    controller.inserirLike(req, res);
+});
+
+router.post('/removerLike', (req, res, next) => {
+    controller.removerLike(req, res);
+});
 
 module.exports = router;
