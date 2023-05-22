@@ -142,20 +142,21 @@ body {
 }
 
 .dropdown {
-
     position: absolute;
     width: 15%;
     height: 0%;
     background-color: #1977F3;
     transition: .4s ease-out;
     border-radius: 0 0 10px 10px;
-
 }
 
 .dropdownItem {
     visibility: hidden;
     width: 100%;
-
+    height: 10%;
+    z-index: 30;
+    color: #949ABC;
+    background-color: #358894;
 }
 
 .perfilWrapper:hover>.dropdown {
@@ -179,6 +180,18 @@ body {
     width: 100%;
     visibility: visible;
     transition: .4s ease-out;
+    background-color: #358894;
+    color: #ffffff;
+}
+
+.containerConteudo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #E9EBF3;
+    padding-left: 15%;
+    padding-right: 15%;
 }
 
 .titulo {
@@ -187,6 +200,120 @@ body {
     font-weight: 800;
     font-size: 1.5em;
     color: #000;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
+}
+
+.wrapperInfoGeral {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    padding: 2%;
+
+}
+
+.wrapperImgPerfil {
+    display: inline-flex;
+    width: 140px;
+    height: 140px;
+    background-size: cover;
+    filter: drop-shadow(0px 40px 37px rgba(0, 0, 0, 0.25));
+    border-radius: 77px;
+    margin-right: 1%;
+}
+
+.nomeUsuario {
+
+    font-family: 'Supera Gothic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 44px;
+
+    color: #000000;
+}
+
+.labelIdUsuario {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #000000;
+}
+
+.infoPessoaisContainer {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    height: 100vh;
+    justify-content: space-between;
+
+
+}
+
+.infoPessoaisContainer span span {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10%;
+
+}
+
+.labelInfoPessoais {
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #6F6F6F;
+    margin-bottom: 2%;
+}
+
+.inputDisable {
+    width: 15vw;
+    height: 6vh;
+    background: #D9DCEC;
+    border: 1px solid #949ABC;
+    backdrop-filter: blur(2px);
+    /* Note: backdrop-filter has minimal browser support */
+    padding: 4%;
+    border-radius: 4px;
+}
+
+.inputEnable {
+    width: 15vw;
+    height: 6vh;
+    background: #E6FCFF;
+    border: 1px solid #1977F3;
+    box-shadow: 0px 4px 18px 7px rgba(196, 226, 231, 0.61);
+    backdrop-filter: blur(2px);
+    /* Note: backdrop-filter has minimal browser support */
+    padding: 4%;
+    border-radius: 4px;
+}
+
+.inputEnable::placeholder {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height */
+
+    padding: 4%;
+    color: #454545;
+}
+
+.inputDisable::placeholder {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height */
+
+    padding: 4%;
+    color: #454545;
 }

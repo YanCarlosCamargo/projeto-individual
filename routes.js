@@ -11,11 +11,9 @@ router.get('/blog', function (req, res, next) {
 });
 
 router.get('/perfil', function (req, res, next) {
-    console.log(__dirname);
-    res.sendFile('website/perfil/conta.html', { root: __dirname })
+    res.sendFile('website/perfil/conta.html')
     // res.redirect('../')
 });
-
 
 router.get('/dashboard', function (req, res, next) {
     res.sendFile('/website/perfil/dashboard.html', { root: __dirname });
@@ -24,8 +22,6 @@ router.get('/dashboard', function (req, res, next) {
 router.get('/listarPosts', function (req, res, next) {
     controller.listarPosts(req, res);
 });
-
-
 
 router.post('/listar', function (req, res, next) {
     // console.log("A requisição no routes listar é a seguinte ", req.body)

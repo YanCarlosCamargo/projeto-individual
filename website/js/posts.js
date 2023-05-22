@@ -112,6 +112,7 @@ wrapperNovoPost.addEventListener('click', () => {
 })
 
 
+
 async function subirImagem(url, options) {
     console.log("subindo Imagem");
     const response = await fetch(url, options);
@@ -165,14 +166,14 @@ async function newPost() {
                 console.log("data Sucess??? ", data.success);
                 body.img = data.data.link;
             } else {
+                loading();
                 alert("erro, não subiu a imagem");
                 console.log("erro, não subiu a imagem", data);
-                loading();
                 return false
             }
         }).then(() => {
 
-            if (body.img != '' || body.img != null || body.img != undefined) {
+            if (body.img != '' && body.img != null && body.img != undefined) {
                 fetch('/inserirPost', {
                     method: 'POST',
                     headers: {
@@ -194,7 +195,7 @@ async function newPost() {
                     }
                 })
             } else {
-                loading();
+                // loading();
                 alert("erro, não subiu a imagem");
             }
         })

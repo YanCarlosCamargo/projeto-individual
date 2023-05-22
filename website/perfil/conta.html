@@ -30,18 +30,71 @@
                         <span id="imgProfile" src="../assets/img/profile/profile.png" alt=""></span>
                     </div>
                     <div class="dropdown">
-                        <div class="dropdownItem">Perfil</div>
+                        <div class="dropdownItem" id="btnPerfil">Perfil</div>
                         <div class="dropdownItem" id="btnLogout">Sair</div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <div class="containerConteudo">
+            <label class="titulo">Conta</label>
+            <div class="wrapperInfoGeral">
+                <div class="wrapperImgPerfil" id="wrapperImgPerfil"></div>
+                <span style="display: flex; flex-direction: column;">
+                    <label id="nomeUsuario" class="nomeUsuario">Jnnet D´Lorem</label>
+                    <label id="labelIdUsuario" class="labelIdUsuario">id: </label>
+                </span>
+            </div>
+            <label class="titulo">Informações pessoais</label>
+            <div class="infoPessoaisContainer">
 
-        <label class="titulo">Conta</label>
+                <span>
+
+
+                    <span>
+                        <label class="labelInfoPessoais">Apelido</label>
+                        <input type="text" placeholder="Yan Carlos Camargo" class="inputDisable" disabled>
+                    </span>
+
+                    <span>
+                        <label class="labelInfoPessoais">Email</label>
+                        <input type=" text" class="inputEnable">
+                    </span>
+
+                </span>
+
+                <span>
+
+                    <span>
+                        <label class="labelInfoPessoais">Telefone</label>
+                        <input type=" text" class="inputEnable">
+                    </span>
+
+
+                    <span>
+                        <label class="labelInfoPessoais">Nome Completo</label>
+                        <input type=" text" placeholder="Yan Carlos Camargo" class="inputDisable">
+                    </span>
+                </span>
+            </div>
+        </div>
 
 
     </div>
 </body>
 
 </html>
+
+<script>
+    wrapperImgPerfil.style.backgroundImage = `url(${sessionStorage.fotoUsuario})`;
+    nomeUsuario.innerHTML = sessionStorage.nomeUsuario;
+    labelIdUsuario.innerHTML += sessionStorage.idUsuario;
+
+    btnPerfil.addEventListener('click', () => {
+        console.log("abrir login");
+        window.location.href = '/perfil';
+    });
+
+
+</script>
