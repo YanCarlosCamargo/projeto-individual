@@ -79,3 +79,9 @@
     src: url(../assets/font/SuperaGothic-ExtraBold.otf);
     font-weight: 800;
 }
+
+@font-face {
+    font-family: Proxima Nova;
+    src: url(../assets/font/ProximaNovaBold.otf);
+    font-weight: 700;
+}

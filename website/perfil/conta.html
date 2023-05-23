@@ -27,7 +27,7 @@
                 <div class="perfilWrapper">
                     <div class="loginContainer linkNav" id="btnLogin">
                         <div class="btnLogin" id="navName">Perfil</div>
-                        <span id="imgProfile" src="../assets/img/profile/profile.png" alt=""></span>
+                        <span id="imgProfile" alt=""></span>
                     </div>
                     <div class="dropdown">
                         <div class="dropdownItem" id="btnPerfil">Perfil</div>
@@ -48,35 +48,66 @@
             </div>
             <label class="titulo">Informações pessoais</label>
             <div class="infoPessoaisContainer">
-
                 <span>
-
-
                     <span>
                         <label class="labelInfoPessoais">Apelido</label>
-                        <input type="text" placeholder="Yan Carlos Camargo" class="inputDisable" disabled>
+                        <input type="text" placeholder="Yão" class="inputDisable" disabled>
                     </span>
 
                     <span>
                         <label class="labelInfoPessoais">Email</label>
                         <input type=" text" class="inputEnable">
                     </span>
-
                 </span>
 
                 <span>
-
                     <span>
                         <label class="labelInfoPessoais">Telefone</label>
                         <input type=" text" class="inputEnable">
                     </span>
 
-
                     <span>
                         <label class="labelInfoPessoais">Nome Completo</label>
                         <input type=" text" placeholder="Yan Carlos Camargo" class="inputDisable">
                     </span>
+
                 </span>
+            </div>
+
+            <hr>
+            <label class="titulo">Posts</label>
+            <div class="wrapperPosts" id="wrapperPosts">
+                <div class="postContainer">
+                    <span class="spanMaior">
+                        <label class="labelIdPost">12344</label>
+                        <label class="labelTituloPost">Cachorros mordem pessoas</label>
+                    </span>
+
+
+                    <span class="spanMenor">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M5 23.7q-.825 0-1.413-.587T3 21.7v-14q0-.825.588-1.413T5 5.7h8.925l-2 2H5v14h14v-6.95l2-2v8.95q0 .825-.588 1.413T19 23.7H5Zm7-9Zm4.175-8.425l1.425 1.4l-6.6 6.6V15.7h1.4l6.625-6.625l1.425 1.4l-6.625 6.625q-.275.275-.638.438t-.762.162H10q-.425 0-.713-.288T9 16.7v-2.425q0-.4.15-.763t.425-.637l6.6-6.6Zm4.275 4.2l-4.275-4.2l2.5-2.5q.6-.6 1.438-.6t1.412.6l1.4 1.425q.575.575.575 1.4T22.925 8l-2.475 2.475Z" />
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="m9.4 16.5l2.6-2.6l2.6 2.6l1.4-1.4l-2.6-2.6L16 9.9l-1.4-1.4l-2.6 2.6l-2.6-2.6L8 9.9l2.6 2.6L8 15.1l1.4 1.4ZM7 21q-.825 0-1.413-.588T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.588 1.413T17 21H7ZM17 6H7v13h10V6ZM7 6v13V6Z" />
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M12 9a3 3 0 0 1 3 3a3 3 0 0 1-3 3a3 3 0 0 1-3-3a3 3 0 0 1 3-3m0-4.5c5 0 9.27 3.11 11 7.5c-1.73 4.39-6 7.5-11 7.5S2.73 16.39 1 12c1.73-4.39 6-7.5 11-7.5M3.18 12a9.821 9.821 0 0 0 17.64 0a9.821 9.821 0 0 0-17.64 0Z" />
+                        </svg>
+                    </span>
+                </div>
+
+                <div class="postContainer">
+                </div>
+
+                <div class="postContainer">
+                </div>
+
             </div>
         </div>
 
@@ -96,5 +127,60 @@
         window.location.href = '/perfil';
     });
 
+
+    async function buscarPosts() {
+
+        await fetch('/listarPosts', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => response.json()).then(row => {
+            console.log(row.posts[0])
+            if (row.posts[0]) {
+                listarPosts(row.posts[0])
+            }
+
+        }).catch(console.log);
+    }
+
+    function listarPosts(lista) {
+        console.log(lista);
+        wrapperPosts.innerHTML = "";
+        lista.forEach(post => {
+            if (post.fkAutor == sessionStorage.idUsuario) {
+                console.log(post);
+                wrapperPosts.innerHTML += `
+                <div class="postContainer">
+                    <span class="spanMaior">
+                        <label class="labelIdPost">${post.idPost}</label>
+                        <label class="labelTituloPost">${post.titulo}</label>
+                    </span>
+
+
+                    <span class="spanMenor">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M5 23.7q-.825 0-1.413-.587T3 21.7v-14q0-.825.588-1.413T5 5.7h8.925l-2 2H5v14h14v-6.95l2-2v8.95q0 .825-.588 1.413T19 23.7H5Zm7-9Zm4.175-8.425l1.425 1.4l-6.6 6.6V15.7h1.4l6.625-6.625l1.425 1.4l-6.625 6.625q-.275.275-.638.438t-.762.162H10q-.425 0-.713-.288T9 16.7v-2.425q0-.4.15-.763t.425-.637l6.6-6.6Zm4.275 4.2l-4.275-4.2l2.5-2.5q.6-.6 1.438-.6t1.412.6l1.4 1.425q.575.575.575 1.4T22.925 8l-2.475 2.475Z" />
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="m9.4 16.5l2.6-2.6l2.6 2.6l1.4-1.4l-2.6-2.6L16 9.9l-1.4-1.4l-2.6 2.6l-2.6-2.6L8 9.9l2.6 2.6L8 15.1l1.4 1.4ZM7 21q-.825 0-1.413-.588T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.588 1.413T17 21H7ZM17 6H7v13h10V6ZM7 6v13V6Z" />
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M12 9a3 3 0 0 1 3 3a3 3 0 0 1-3 3a3 3 0 0 1-3-3a3 3 0 0 1 3-3m0-4.5c5 0 9.27 3.11 11 7.5c-1.73 4.39-6 7.5-11 7.5S2.73 16.39 1 12c1.73-4.39 6-7.5 11-7.5M3.18 12a9.821 9.821 0 0 0 17.64 0a9.821 9.821 0 0 0-17.64 0Z" />
+                        </svg>
+                    </span>
+                </div>
+                `;
+
+            }
+        });
+    }
+
+    buscarPosts();
 
 </script>

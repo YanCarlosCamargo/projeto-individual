@@ -77,15 +77,26 @@ function listarPost(listaPosts, listaLikes) {
     }
 }
 
-function loading() {
+function loading(preferencia) {
     var state = loadingOverlay.style.display;
-    if (state == 'flex') {
-        loadingOverlay.style.display = 'none';
-        loadingOverlay.style.opacity = '0';
-    } else {
-        loadingOverlay.style.display = 'flex';
-        loadingOverlay.style.opacity = '1';
 
+    if (!preferencia) {
+        if (state == 'flex') {
+            loadingOverlay.style.display = 'none';
+            loadingOverlay.style.opacity = '0';
+        } else {
+            loadingOverlay.style.display = 'flex';
+            loadingOverlay.style.opacity = '1';
+
+        }
+    } else {
+        if (preferencia == true) {
+            loadingOverlay.style.display = 'flex';
+            loadingOverlay.style.opacity = '1';
+        } else {
+            loadingOverlay.style.display = 'none';
+            loadingOverlay.style.opacity = '0';
+        }
     }
 }
 
@@ -134,7 +145,7 @@ input.addEventListener('change', () => {
 })
 
 async function newPost() {
-    loading();
+    loading(true);
     const titulo = document.querySelector('.tituloPostExpandido').value;
     const descricao = document.querySelector('.descricaoPostExpandido').value;
     const img = document.querySelector('.imgPostExpandido').src;
@@ -166,7 +177,7 @@ async function newPost() {
                 console.log("data Sucess??? ", data.success);
                 body.img = data.data.link;
             } else {
-                loading();
+                loading(false);
                 alert("erro, não subiu a imagem");
                 console.log("erro, não subiu a imagem", data);
                 return false
@@ -184,18 +195,18 @@ async function newPost() {
                     console.log(response);
                     if (response.status == 200) {
                         console.log("post inserido com sucesso");
-                        loading();
+                        loading(false);
                         wrapperNovoPost.style.display = 'flex';
                         document.querySelector('.containerPostExpandido').style.display = 'none';
                         limparCampos();
                         buscarPosts()
                     } else {
-                        loading();
+                        loading(false);
                         console.log("erro ao inserir post");
                     }
                 })
             } else {
-                // loading();
+                loading(false);
                 alert("erro, não subiu a imagem");
             }
         })

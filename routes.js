@@ -11,7 +11,7 @@ router.get('/blog', function (req, res, next) {
 });
 
 router.get('/perfil', function (req, res, next) {
-    res.sendFile('website/perfil/conta.html')
+    res.sendFile('/website/perfil/conta.html', { root: __dirname })
     // res.redirect('../')
 });
 
