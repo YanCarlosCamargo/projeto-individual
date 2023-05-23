@@ -44,6 +44,10 @@ router.post('/inserirPost', (req, res, next) => {
     controller.inserirPost(req, res);
 });
 
+router.post('/removerPost', (req, res, next) => {
+    controller.removerPost(req, res);
+});
+
 router.post('/inserirLike', (req, res, next) => {
     controller.inserirLike(req, res);
 });

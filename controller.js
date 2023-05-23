@@ -69,6 +69,13 @@ async function inserirPost(req, res) {
     res.json(result);
 }
 
+async function removerPost(req, res) {
+    let idPost = req.body.idPost;
+    let result = await bd.removerPost(idPost);
+    console.log("Post removido com sucesso! ", result);
+    res.json(result);
+}
+
 async function inserirLike(req, res) {
     let idUsuario = req.body.idUsuario;
     let idPost = req.body.idPost;
@@ -86,4 +93,4 @@ async function removerLike(req, res) {
 }
 
 
-module.exports = { listar, executarSelect, executarInsert, inserirUsuario, login, listarPosts, inserirPost, inserirLike, removerLike };
+module.exports = { listar, executarSelect, executarInsert, inserirUsuario, login, listarPosts, inserirPost, removerPost, inserirLike, removerLike };

@@ -245,6 +245,17 @@ body {
     color: #000000;
 }
 
+.labelLikesUsuario {
+    margin-top: 2%;
+    font-family: 'Supera Gothic';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    color: #000000;
+}
+
 .infoPessoaisContainer {
     display: flex;
     flex-direction: row;
@@ -385,5 +396,11 @@ body {
     height: 50%;
     width: 50%;
     justify-content: space-between;
+
+}
+
+.spanMenor svg {
+    margin-right: 3%;
+    cursor: pointer;
 
 }
