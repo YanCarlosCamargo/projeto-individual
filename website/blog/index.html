@@ -29,16 +29,14 @@
             <div class="containerLinksNav">
 
                 <div class="linkNav" onclick="buscarPosts()">Recarregar Feed</div>
-                <div class="linkNav">Oque é Arduino</div>
-                <div class="linkNav">Oque é Arduino</div>
 
                 <div class="perfilWrapper">
                     <div class="loginContainer linkNav" id="btnLogin">
                         <div class="btnLogin" id="navName">Perfil</div>
-                        <span id="imgProfile" src="../assets/img/profile/profile.png" alt=""></span>
+                        <span id="imgProfile" alt=""></span>
                     </div>
                     <div class="dropdown">
-                        <div class="dropdownItem">Perfil</div>
+                        <div class="dropdownItem" id="btnPerfil">Perfil</div>
                         <div class="dropdownItem" id="btnLogout">Sair</div>
                     </div>
                 </div>
@@ -57,29 +55,39 @@
                 <div class="wrapperPosts">
                     <input class="imgPostExpandido" id="input-file" placeholder="Escolha a imagem do seu Post"
                         type="file" accept=".jpg,.jpeg"></input>
-                    <div class="containerPostExpandido">
-
+                    <div class="containerPostExpandido" id="containerPostExpandido">
                         <div class="wrapperImgPostExpandido" id="wrapperImg">
 
                         </div>
                         <div class="wrapperInfoPostExpandido">
+
+
+
                             <div class="wrapperDataTituloExpandido">
                                 <input placeholder="Insira o Titulo do post" class="tituloPostExpandido"></input>
+                                <svg id="idCloseNewPost" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6L6.4 19Z" />
+                                </svg>
                             </div>
+
                             <input type="text" placeholder="Insira a descrição do novo post"
                                 class="descricaoPostExpandido">
                             </input>
                             <button class="btn-file">Selecione a imagem</button>
                             <button id="btnNewPost" onclick="newPost()">Publicar Novo Post</button>
+
                         </div>
+
                     </div>
 
                     <div id="wrapperNovoPost" class="wrapperNovoPost">
-                        <p>Novo Post</p>
+                        Novo Post...
                     </div>
 
 
-                    <div style="height: 50px; margin-top: 7%;"></div>
+                    <div style="height: 50px; margin-top: 5%;"></div>
                     <span id="resultado" style="display: flex; align-items: center; flex-direction: column;">
 
                         <div class="containerPost">
@@ -120,19 +128,12 @@
                     </span>
                 </div>
                 <div class="wrapperNoticias">
-                    sdfaf
                 </div>
             </div>
         </div>
 
     </div>
-
-    <script>
-
-
-        console.log("id sessão ", sessionStorage);
-
-    </script>
+    <script src="../js/verfificarSession.js"></script>
 
     <script src="../js/posts.js"></script>
 

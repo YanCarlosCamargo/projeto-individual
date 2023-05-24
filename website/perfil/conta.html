@@ -20,10 +20,7 @@
 
             <div class="containerLinksNav">
 
-                <div class="linkNav" onclick="buscarPosts()">Recarregar Feed</div>
-                <div class="linkNav">Oque é Arduino</div>
-                <div class="linkNav">Oque é Arduino</div>
-
+                <div class="linkNav" onclick="window.location.href = '/blog'">Voltar Para o Feed</div>
                 <div class="perfilWrapper">
                     <div class="loginContainer linkNav" id="btnLogin">
                         <div class="btnLogin" id="navName">Perfil</div>
@@ -118,6 +115,7 @@
 
 
     </div>
+    <script src="../js/verfificarSession.js"></script>
 </body>
 
 </html>
@@ -127,10 +125,7 @@
     nomeUsuario.innerHTML = sessionStorage.nomeUsuario;
     labelIdUsuario.innerHTML += sessionStorage.idUsuario;
 
-    btnPerfil.addEventListener('click', () => {
-        console.log("abrir login");
-        window.location.href = '/perfil';
-    });
+
 
 
     async function buscarPosts() {

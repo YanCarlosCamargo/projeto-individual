@@ -12,6 +12,8 @@
 }
 
 
+
+
 .wrapperImgPostExpandido {
     display: flex;
     width: 40%;
@@ -38,6 +40,11 @@
     justify-content: space-between;
     flex-wrap: nowrap;
 
+}
+
+#idCloseNewPost {
+    cursor: pointer;
+    display: inline;
 }
 
 .wrapperDataTituloExpandido {

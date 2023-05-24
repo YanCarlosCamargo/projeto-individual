@@ -84,6 +84,7 @@ function loading(preferencia) {
         if (state == 'flex') {
             loadingOverlay.style.display = 'none';
             loadingOverlay.style.opacity = '0';
+            console.log('fechando');
         } else {
             loadingOverlay.style.display = 'flex';
             loadingOverlay.style.opacity = '1';
@@ -94,6 +95,7 @@ function loading(preferencia) {
             loadingOverlay.style.display = 'flex';
             loadingOverlay.style.opacity = '1';
         } else {
+            console.log('fechando');
             loadingOverlay.style.display = 'none';
             loadingOverlay.style.opacity = '0';
         }
@@ -103,10 +105,7 @@ function loading(preferencia) {
 buscarPosts();
 
 
-btnLogout.addEventListener('click', () => {
-    sessionStorage.clear();
-    window.location.href = '/';
-});
+
 
 navName.innerHTML = sessionStorage['apelidoUsuario'];
 const clientId = '83f26f78f9124b6';
@@ -120,8 +119,14 @@ var wrapperNovoPost = document.getElementById('wrapperNovoPost');
 wrapperNovoPost.addEventListener('click', () => {
     wrapperNovoPost.style.display = 'none';
     document.querySelector('.containerPostExpandido').style.display = 'flex';
+    location.href = '#containerPostExpandido';
 })
 
+idCloseNewPost.addEventListener('click', () => {
+    wrapperNovoPost.style.display = 'flex';
+    limparCampos();
+    document.querySelector('.containerPostExpandido').style.display = 'none';
+});
 
 
 async function subirImagem(url, options) {
@@ -177,7 +182,7 @@ async function newPost() {
                 console.log("data Sucess??? ", data.success);
                 body.img = data.data.link;
             } else {
-                loading(false);
+                loading();
                 alert("erro, não subiu a imagem");
                 console.log("erro, não subiu a imagem", data);
                 return false
@@ -206,8 +211,7 @@ async function newPost() {
                     }
                 })
             } else {
-                loading(false);
-                alert("erro, não subiu a imagem");
+                console.log("ultimo else");
             }
         })
     }
@@ -217,7 +221,8 @@ function limparCampos() {
 
     document.querySelector('.tituloPostExpandido').value = '';
     document.querySelector('.descricaoPostExpandido').value = '';
-    document.querySelector('.imgPostExpandido').src = '';
+    wrapperImg.innerHTML = ``
+
 }
 
 function inserirLike(idPost) {
