@@ -227,14 +227,28 @@ body {
     align-items: center;
     height: 100%;
     width: 0%;
-    padding-top: 5%;
-    padding-left: 2%;
-    padding-right: 2%;
     transition: 1s;
-    transition-delay: 2s;
+    transition-delay: 1s;
 }
 
 .containerAbaLateral:hover {
+    transition: .5s;
+    transition-delay: .0s;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 20%;
+    padding-top: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
+
+
+}
+
+.containerAbaLateralAberto {
     transition: .5s;
     transition-delay: .0s;
     background-color: #FFFFFF;
@@ -264,6 +278,12 @@ body {
 }
 
 .containerAbaLateral:hover>.wrapperConteudoLateral {
+    transition: .7s;
+    transition-delay: .3s;
+    opacity: 1;
+}
+
+.wrapperConteudoLateralAberto {
     transition: .7s;
     transition-delay: .3s;
     opacity: 1;
@@ -461,10 +481,16 @@ body {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
     align-items: center;
     width: 100%;
     cursor: pointer;
+    color: #4c4c4c;
+}
+
+.labelAutor:hover {
+    text-decoration: underline;
+    color: #000000;
 }
 
 .descricaoPost {
