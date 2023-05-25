@@ -82,6 +82,10 @@ async function login(email, senha) {
     return [row] = await promissePool.query(`SELECT * FROM tbUsuario WHERE email = '${email}' AND senha = '${senha}'`)
 }
 
+async function buscarUsuario(idUsuario) {
+    return [row] = await promissePool.query(`SELECT * FROM tbUsuario WHERE idUsuario = '${idUsuario}'`)
+}
+
 async function listarPosts() {
     var resultado = {
         likes: [],
@@ -114,7 +118,7 @@ async function buscarLikes(idUsuario) {
 }
 
 async function buscarRankLikes() {
-    let [row] = await promissePool.query(`SELECT u.idUsuario, u.apelido, SUM(a.qtdLikes) AS total_likes FROM tbUsuario u JOIN assLikes a ON u.idUsuario = a.fkUsuario GROUP BY u.idUsuario, u.apelido ORDER BY total_likes DESC`)
+    let [row] = await promissePool.query(`SELECT u.idUsuario, u.apelido, SUM(a.qtdLikes) AS total_likes FROM tbUsuario u JOIN assLikes a ON u.idUsuario = a.fkUsuario GROUP BY u.idUsuario, u.apelido ORDER BY total_likes DESC LIMIT 5`)
     console.log(row);
     return row;
 }
@@ -132,5 +136,6 @@ module.exports = {
     removerLike,
     removerPost,
     buscarLikes,
-    buscarRankLikes
+    buscarRankLikes,
+    buscarUsuario
 }; 

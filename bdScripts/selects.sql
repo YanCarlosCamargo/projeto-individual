@@ -13,7 +13,7 @@ USE projetoIndividual;
 -- SELECT * FROM asslikes;
 -- SELECT qtdLikes FROM asslikes JOIN tbPosts on fkPost = tbPosts.idPost;
 
-SELECT u.idUsuario, u.apelido, SUM(a.qtdLikes) AS total_likes
+SELECT u.idUsuario, u.apelido, SUM(a.qtdLikes) AS totalLikes
 FROM tbUsuario u
 JOIN assLikes a ON u.idUsuario = a.fkUsuario
 GROUP BY u.idUsuario, u.apelido

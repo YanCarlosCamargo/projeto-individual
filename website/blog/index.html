@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../styles/teste.css">
 </head>
 
-<body>
+<body onload="buscarPosts()">
 
     <div class="overlay" id="loadingOverlay">
         <div class="overlay__inner">
@@ -35,8 +35,18 @@
                         <span id="imgProfile" alt=""></span>
                     </div>
                     <div class="dropdown">
-                        <div class="dropdownItem" id="btnPerfil">Perfil</div>
-                        <div class="dropdownItem" id="btnLogout">Sair</div>
+                        <div class="dropdownItem" id="btnPerfil"><svg width="24" heigth="24" fill="white"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path
+                                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                            </svg>Perfil</div>
+                        <div class="dropdownItem" id="btnLogout"><svg width="24" heigth="24" fill="white"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path
+                                    d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z" />
+                            </svg> Sair</div>
                     </div>
                 </div>
             </div>
@@ -44,9 +54,11 @@
 
         <div class="containerConteudo">
             <div class="containerAbaLateral">
-                <span id="imgProfileLateral" src="../assets/img/profile/profile.png" alt=""></span>
-                <label id="labelNome">Roberto Turbiani</label>
-                <label class="labelTitulo">Mais Comentados</label>
+                <span class="wrapperConteudoLateral">
+                    <span id="imgProfileLateral" src="../assets/img/profile/profile.png" alt=""></span>
+                    <label id="labelNome">Roberto Turbiani</label>
+                    <label class="labelTitulo">Mais Comentados</label>
+                </span>
             </div>
 
             <div class="containerFeed">
@@ -127,14 +139,83 @@
                     </span>
                 </div>
                 <div class="wrapperNoticias">
+                    <div class="wrapperCanva">
+                        <canvas id="likesChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/verfificarSession.js"></script>
-
     <script src="../js/posts.js"></script>
+
+    <script>
+        var graficoGerado
+
+        fetch('/buscarRankLikes')
+            .then(response => response.json())
+            .then(data => {
+                const usuarios = data.map(item => item.apelido);
+                const likes = data.map(item => item.total_likes);
+                console.log(usuarios, likes);
+                const ctx = document.getElementById('likesChart').getContext('2d');
+                graficoGerado = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: usuarios,
+                        datasets: [{
+                            label: 'Likes',
+                            data: likes,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        legend: {
+                            display: true,
+                            labels: {
+                                fontColor: '#333',
+                                fontSize: 14
+                            }
+                        },
+                        scales: {
+                            xAxes: [{
+                                gridLines: {
+                                    display: false
+                                },
+                                ticks: {
+                                    fontColor: '#333',
+                                    fontSize: 14
+                                }
+                            }],
+                            yAxes: [{
+                                gridLines: {
+                                    drawBorder: false,
+                                    color: ['#ccc', '#ccc', '#ccc', '#ccc', '#ccc', '#eee'],
+                                    lineWidth: [1, 1, 1, 1, 1, 2]
+                                },
+                                ticks: {
+                                    fontColor: '#333',
+                                    fontSize: 14,
+                                    beginAtZero: true,
+                                    callback: function (value, index, values) {
+                                        return '$' + value;
+                                    }
+                                }
+                            }]
+                        },
+                        indexAxis: 'y',
+                    }
+                })
+
+            })
+            .catch(error => {
+                console.error('Ocorreu um erro:', error);
+            });
+    </script>
 
 </body>
 

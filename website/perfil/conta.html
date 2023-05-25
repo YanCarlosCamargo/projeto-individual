@@ -244,11 +244,40 @@
                     }]
                 },
                 options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            stepSize: 1
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: true,
+                        labels: {
+                            fontColor: '#333',
+                            fontSize: 14
                         }
+                    },
+                    scales: {
+                        xAxes: [{
+                            gridLines: {
+                                display: false
+                            },
+                            ticks: {
+                                fontColor: '#333',
+                                fontSize: 14
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                drawBorder: false,
+                                color: ['#ccc', '#ccc', '#ccc', '#ccc', '#ccc', '#eee'],
+                                lineWidth: [1, 1, 1, 1, 1, 2]
+                            },
+                            ticks: {
+                                fontColor: '#333',
+                                fontSize: 14,
+                                beginAtZero: true,
+                                callback: function (value, index, values) {
+                                    return '$' + value;
+                                }
+                            }
+                        }]
                     }
                 }
             });
