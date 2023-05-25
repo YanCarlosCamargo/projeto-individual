@@ -96,6 +96,11 @@ async function inserirPost(idUsuario, titulo, desc, imgLink) {
     return [row] = await promissePool.query(`INSERT INTO tbPosts (fkAutor, titulo, descPost, dtPost, imgPost) VALUES ('${idUsuario}', '${titulo}', '${desc}', now(), '${imgLink}')`)
 }
 
+async function removerPost(idPost) {
+    promissePool.query(`DELETE FROM asslikes WHERE fkPost = '${idPost}'`).then(() => { promissePool.query(`DELETE FROM tbPosts WHERE idPost = '${idPost}'`).then(() => { return true }) })
+
+}
+
 async function inserirLike(idUsuario, idPost) {
     return [row] = await promissePool.query(`INSERT INTO asslikes (fkUsuario, fkPost, qtdLikes) VALUES ('${idUsuario}', '${idPost}', 1)`)
 }
@@ -104,4 +109,28 @@ async function removerLike(idUsuario, idPost) {
     return [row] = await promissePool.query(`DELETE FROM asslikes WHERE fkUsuario = '${idUsuario}' AND fkPost = '${idPost}'`)
 }
 
-module.exports = { executarSelect, listar, executarInsert, executarQuery, inserirUsuario, login, listarPosts, inserirPost, inserirLike, removerLike }; 
+async function buscarLikes(idUsuario) {
+    return [row] = await promissePool.query(`SELECT a.idLikes, p.titulo, u.apelido, a.qtdLikes FROM assLikes a JOIN tbPosts p ON a.fkPost = p.idPost JOIN tbUsuario u ON a.fkUsuario = u.idUsuario WHERE u.idUsuario = ${idUsuario}`)
+}
+
+async function buscarRankLikes() {
+    let [row] = await promissePool.query(`SELECT u.idUsuario, u.apelido, SUM(a.qtdLikes) AS total_likes FROM tbUsuario u JOIN assLikes a ON u.idUsuario = a.fkUsuario GROUP BY u.idUsuario, u.apelido ORDER BY total_likes DESC`)
+    console.log(row);
+    return row;
+}
+
+module.exports = {
+    executarSelect,
+    listar,
+    executarInsert,
+    executarQuery,
+    inserirUsuario,
+    login,
+    listarPosts,
+    inserirPost,
+    inserirLike,
+    removerLike,
+    removerPost,
+    buscarLikes,
+    buscarRankLikes
+}; 

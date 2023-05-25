@@ -56,4 +56,12 @@ router.post('/removerLike', (req, res, next) => {
     controller.removerLike(req, res);
 });
 
+router.get('/buscarLikes/:idUsuario', (req, res, next) => {
+    controller.buscarLikes(req, res);
+})
+
+router.get('/buscarRankLikes', (req, res, next) => {
+    controller.buscarRankLikes(req, res);
+});
+
 module.exports = router;

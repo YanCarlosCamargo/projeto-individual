@@ -11,9 +11,14 @@
 </head>
 
 <body>
+    <div class="overlay" id="loadingOverlay">
+        <div class="overlay__inner">
+            <div class="overlay__content" i><span class="spinner"></span></div>
+        </div>
+    </div>
     <div class="containerMain">
         <div class="navContainer">
-            <div class="logoContainer">
+            <div class="logoContainer" onclick="window.location.href= '/'">
                 <img src="./assets/img/design/logo.png" alt="">
                 <span id="logoText">MAKERBLOG</span>
             </div>
@@ -41,36 +46,40 @@
                 <span style="display: flex; flex-direction: column;">
                     <label id="nomeUsuario" class="nomeUsuario">Jnnet D´Lorem</label>
                     <label id="labelIdUsuario" class="labelIdUsuario">id: </label>
-                    <label id="labelLikesUsuario" class="labelLikesUsuario">397 <svg style="display: inline;"
+                    <label id="labelLikesUsuario" class="labelLikesUsuario">0 <svg style="display: inline;"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path fill="currentColor"
                                 d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53L12 21.35Z" />
                         </svg></label>
                 </span>
+                <div class="wrapperCanva">
+                    <canvas id="likesChart"></canvas>
+                </div>
             </div>
+
             <label class="titulo">Informações pessoais</label>
             <div class="infoPessoaisContainer">
                 <span>
                     <span>
                         <label class="labelInfoPessoais">Apelido</label>
-                        <input type="text" placeholder="Yão" class="inputDisable" disabled>
+                        <input type="text" id="inputApelido" placeholder="" class="inputDisable" disabled>
                     </span>
 
                     <span>
                         <label class="labelInfoPessoais">Email</label>
-                        <input type=" text" class="inputEnable">
+                        <input type=" text" id="inputEmail" class="inputEnable">
                     </span>
                 </span>
 
                 <span>
                     <span>
                         <label class="labelInfoPessoais">Telefone</label>
-                        <input type=" text" class="inputEnable">
+                        <input type=" text" id="inputTelefone" class="inputEnable">
                     </span>
 
                     <span>
                         <label class="labelInfoPessoais">Nome Completo</label>
-                        <input type=" text" placeholder="Yan Carlos Camargo" class="inputDisable">
+                        <input type=" text" id="inputNomeCompleto" placeholder="" class="inputDisable">
                     </span>
 
                 </span>
@@ -115,15 +124,23 @@
 
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/perfilScript.js"></script>
     <script src="../js/verfificarSession.js"></script>
 </body>
 
 </html>
 
 <script>
+    imgProfile.style.backgroundImage = `url(${sessionStorage.fotoUsuario})`;
     wrapperImgPerfil.style.backgroundImage = `url(${sessionStorage.fotoUsuario})`;
     nomeUsuario.innerHTML = sessionStorage.nomeUsuario;
     labelIdUsuario.innerHTML += sessionStorage.idUsuario;
+    inputNomeCompleto.placeholder = sessionStorage.nomeUsuario;
+    inputApelido.placeholder = sessionStorage.apelidoUsuario;
+    navName.innerHTML = sessionStorage.apelidoUsuario;
+    inputTelefone.placeholder = sessionStorage.telefoneUsuario;
+    inputEmail.placeholder = sessionStorage.emailUsuario;
 
 
 
@@ -147,9 +164,13 @@
     function listarPosts(lista) {
         console.log(lista);
         wrapperPosts.innerHTML = "";
+        lista.reverse();
         lista.forEach(post => {
             if (post.fkAutor == sessionStorage.idUsuario) {
                 console.log(post);
+                let dia = post.dtPost.split("T")[0].split("-")[2];
+                let mes = post.dtPost.split("T")[0].split("-")[1];
+                let ano = post.dtPost.split("T")[0].split("-")[0];
                 wrapperPosts.innerHTML += `
                 <div class="postContainer">
                     <span class="spanMaior">
@@ -159,19 +180,10 @@
 
 
                     <span class="spanMenor">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="M5 23.7q-.825 0-1.413-.587T3 21.7v-14q0-.825.588-1.413T5 5.7h8.925l-2 2H5v14h14v-6.95l2-2v8.95q0 .825-.588 1.413T19 23.7H5Zm7-9Zm4.175-8.425l1.425 1.4l-6.6 6.6V15.7h1.4l6.625-6.625l1.425 1.4l-6.625 6.625q-.275.275-.638.438t-.762.162H10q-.425 0-.713-.288T9 16.7v-2.425q0-.4.15-.763t.425-.637l6.6-6.6Zm4.275 4.2l-4.275-4.2l2.5-2.5q.6-.6 1.438-.6t1.412.6l1.4 1.425q.575.575.575 1.4T22.925 8l-2.475 2.475Z" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 24 24">
-                            <path fill="currentColor"
+                     <label class="labelDataPost">${dia}/${mes}/${ano}</label>
+                        <svg xmlns="http://www.w3.org/2000/svg" onclick="removerPost(${post.idPost})" width="27" height="27" viewBox="0 0 24 24">
+                            <path fill="red"
                                 d="m9.4 16.5l2.6-2.6l2.6 2.6l1.4-1.4l-2.6-2.6L16 9.9l-1.4-1.4l-2.6 2.6l-2.6-2.6L8 9.9l2.6 2.6L8 15.1l1.4 1.4ZM7 21q-.825 0-1.413-.588T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.588 1.413T17 21H7ZM17 6H7v13h10V6ZM7 6v13V6Z" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="M12 9a3 3 0 0 1 3 3a3 3 0 0 1-3 3a3 3 0 0 1-3-3a3 3 0 0 1 3-3m0-4.5c5 0 9.27 3.11 11 7.5c-1.73 4.39-6 7.5-11 7.5S2.73 16.39 1 12c1.73-4.39 6-7.5 11-7.5M3.18 12a9.821 9.821 0 0 0 17.64 0a9.821 9.821 0 0 0-17.64 0Z" />
                         </svg>
                     </span>
                 </div>
@@ -181,6 +193,67 @@
         });
     }
 
+
+
     buscarPosts();
 
+    async function removerPost(idPost) {
+        console.log("Remover post: " + idPost);
+        loading();
+        const body = {
+            idPost
+        }
+        await fetch('/removerPost', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body),
+        }).then(response => {
+            console.log(response);
+            if (response.status == 200) {
+                loading();
+                alert("post removido com sucesso");
+                buscarPosts()
+            } else {
+                loading();
+                alert("erro ao remover post");
+            }
+        })
+    }
+
+
+
+    fetch('/buscarRankLikes')
+        .then(response => response.json())
+        .then(data => {
+            const usuarios = data.map(item => item.apelido);
+            const likes = data.map(item => item.total_likes);
+            console.log(usuarios, likes);
+
+            // Configuração e renderização do gráfico
+            const ctx = document.getElementById('likesChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: usuarios,
+                    datasets: [{
+                        label: 'Likes',
+                        data: likes,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            stepSize: 1
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Ocorreu um erro:', error);
+        });
 </script>

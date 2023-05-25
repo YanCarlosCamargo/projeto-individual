@@ -73,7 +73,7 @@ async function removerPost(req, res) {
     let idPost = req.body.idPost;
     let result = await bd.removerPost(idPost);
     console.log("Post removido com sucesso! ", result);
-    res.json(result);
+    res.status(200).json(result);
 }
 
 async function inserirLike(req, res) {
@@ -92,5 +92,29 @@ async function removerLike(req, res) {
     res.json(result);
 }
 
+async function buscarLikes(req, res) {
+    console.log("A requisição no controller buscarLikes é a seguinte ", req.params);
+    let idUsuario = req.params.idUsuario;
+    let result = await bd.buscarLikes(idUsuario);
+    res.status(200).json(result);
+}
 
-module.exports = { listar, executarSelect, executarInsert, inserirUsuario, login, listarPosts, inserirPost, removerPost, inserirLike, removerLike };
+async function buscarRankLikes(req, res) {
+    let result = await bd.buscarRankLikes();
+    res.status(200).json(result);
+}
+
+module.exports = {
+    listar,
+    executarSelect,
+    executarInsert,
+    inserirUsuario,
+    login,
+    listarPosts,
+    inserirPost,
+    removerPost,
+    inserirLike,
+    removerLike,
+    buscarLikes,
+    buscarRankLikes
+};
