@@ -1,19 +1,16 @@
 
 
 async function buscarPosts() {
-
     await fetch('/listarPosts', {
-        method: 'GET',
-        headers: {
+        method: 'GET', headers: {
             'Content-Type': 'application/json'
         }
     }).then(response => response.json()).then(row => {
-        //console.log(row.posts[0])
+        //  console.log(row.posts[0])
         if (row.posts[0]) {
             listarPost(row.posts[0], row.likes[0]);
             // ranking();
         }
-
     }).catch(console.log);
 }
 
@@ -86,6 +83,7 @@ function listarPost(listaPosts, listaLikes) {
 
 navName.innerHTML = sessionStorage['apelidoUsuario'];
 const clientId = '83f26f78f9124b6';
+labelNome.innerHTML = sessionStorage['apelidoUsuario'];
 imgProfile.style.backgroundImage = "url(" + sessionStorage['fotoUsuario'] + ")";
 imgProfileLateral.style.backgroundImage = `url(${sessionStorage['fotoUsuario']})`;
 

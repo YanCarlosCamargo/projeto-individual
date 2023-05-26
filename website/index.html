@@ -136,9 +136,9 @@
 
             <div class="containerLinksNav">
 
-                <div class="linkNav">Oque é Cultura Maker</div>
-                <div class="linkNav">Principais Nomes</div>
-                <div class="linkNav">Sobre o Autor</div>
+                <div class="linkNav" id="linkOque">Oque é Cultura Maker</div>
+                <div class="linkNav" id="linkPrincipais">Principais Nomes</div>
+                <div class="linkNav" id="linkSobre">Sobre o Autor</div>
 
                 <div class="perfilWrapper">
                     <div class="loginContainer linkNav" id="btnLogin">
@@ -185,7 +185,7 @@
         <div class="containerSession1">
             <h2>Bem-vindo à <span class="textoDestaque">Cultura Maker!</span></h2>
 
-            <div class="wrapperTextos">
+            <div class="wrapperTextos" id="scrollOque">
                 <h3> Desenvolva sua criatividade e habilidades como um fabricante ativo!</h3>
                 <p>
                     A cultura maker, também conhecida como movimento maker, é uma abordagem colaborativa e hands-on
@@ -198,44 +198,120 @@
             </div>
 
         </div>
+
         <div class="containerSession2">
+            <div class="linhaDivisao"
+                style="height: 1px; width: 80%; margin: 0 auto; background-color: rgb(196, 196, 196); border-radius: 10px; margin-top: 5%;">
+            </div>
             <h2>Os Grandes Ícones do <span class="textoDestaque">Maker!</span></h2>
 
-            <div class="wrapperCardsPessoas">
+            <div class="wrapperCardsPessoas" id="scrollPrincipais">
                 <div class="containerCard">
                     <div class="wrapperCardImg">
                         <img src="assets/img/design/dale.jpg" alt="">
                     </div>
                     <div class="wrapperCardText">Considerado o "pai" do movimento maker, Dale Dougherty fundou a revista
-                        Make e a Maker Faire, eventos que ajudaram a popularizar a cultura maker em todo o mundo.</div>
-                </div>
-                <div class="containerCard">
-                    <div class="wrapperCardImg">
-                        <img src="assets/img/design/dale.jpg" alt="">
+                        Make e a Maker Faire, eventos que ajudaram a popularizar a cultura maker em todo o mundo.
                     </div>
                 </div>
                 <div class="containerCard">
                     <div class="wrapperCardImg">
-                        <img src="assets/img/design/dale.jpg" alt="">
+                        <img src="assets/img/design/bre.jpg" alt="">
+                    </div>
+                    <div class="wrapperCardText">
+                        Co-fundador da MakerBot Industries, uma empresa pioneira na fabricação de impressoras 3D
+                        acessíveis para consumidores. Bre Pettis desempenhou um papel fundamental na popularização das
+                        impressoras 3D e no incentivo à cultura maker.
+                    </div>
+                </div>
+                <div class="containerCard">
+                    <div class="wrapperCardImg">
+
+                        <img src="assets/img/design/arduino.png" alt="">
+                    </div>
+                    <div class="wrapperCardText">
+                        A plataforma Arduino, criada por Massimo Banzi e sua equipe, é amplamente utilizada na cultura
+                        maker para prototipagem e criação de projetos eletrônicos. O Arduino ajudou a tornar a
+                        eletrônica e a programação mais acessíveis para os entusiastas da cultura maker.
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="containerSession3">
-            <h2>Minha Grande <span class="textoDestaque">Inspiração</span></h2>
-
-            <div class="wrapperImgInspiracao">
-                <img src="assets/img/design/ibere.jpg" alt="">
+            <div class="linhaDivisao"
+                style="height: 1px; width: 80%; margin: 0 auto; background-color: rgb(196, 196, 196); border-radius: 10px; margin-top: 5%;">
             </div>
-            <label class="nomeIbere">Iberê Thenório</label>
+            <div class="containerSession3">
+                <h2>Minha Grande <span class="textoDestaque">Inspiração</span></h2>
+                <span class="setorA">
+                    <div class="wrapperImgInspiracao">
+                        <img src="assets/img/design/ibere.jpg" alt="">
+                    </div>
+                    <div class="wrapperTextosIbere">
+                        <label class="nomeIbere">Iberê Thenório</label>
+                        <p class="descricaoIbere">
+                            Iberê Thenório é um criador de conteúdo brasileiro conhecido por sua abordagem única e
+                            envolvente na
+                            divulgação da ciência e da cultura maker. Com sua personalidade cativante e entusiasmo
+                            contagiante,
+                            Iberê conquistou uma legião de fãs ao redor do mundo.</p>
+                    </div>
+                </span>
+                <div class="textoSession3">
+                    Como co-fundador do canal do YouTube "Manual do Mundo", Iberê utiliza vídeos educacionais e
+                    divertidos para desvendar os segredos por trás de experimentos científicos, truques de mágica e
+                    projetos DIY (Faça Você Mesmo). Sua paixão pela aprendizagem prática e mão na massa inspira
+                    espectadores de todas as idades a explorar o mundo ao seu redor de maneira criativa.
+                    <br><br>
+                    Iberê é reconhecido por sua habilidade em explicar conceitos complexos de forma simples e acessível,
+                    tornando a ciência e a tecnologia mais compreensíveis para o público em geral. Seus experimentos
+                    desafiadores e suas demonstrações fascinantes incentivam a curiosidade e a exploração, despertando o
+                    espírito de descoberta em todos que assistem aos seus vídeos.
+                </div>
+            </div>
         </div>
 
-    </div>
-    <script src="scriptModal.js"></script>
-    <script src="./js/loginScript.js"></script>
-    <script src="script.js"></script>
-    <!-- 
+        <script>
+            window.addEventListener('scroll', function () {
+                var alturaJanela = window.innerHeight;
+
+                var posicaoPrincipais = scrollPrincipais.getBoundingClientRect().top;
+
+                var posicaoOque = scrollOque.getBoundingClientRect().top;
+
+                //    var posicaoSobre = scrollSobre.getBoundingClientRect().top;
+                if (posicaoOque < alturaJanela) {
+                    linkOque.classList.add('ativa');
+                    //     linkSobre.classList.remove('ativa');
+                    // linkPrincipais.classList.remove('ativa');
+                } else {
+                    linkOque.classList.remove('ativa');
+                }
+
+                if (posicaoPrincipais < alturaJanela) {
+                    linkPrincipais.classList.add('ativa');
+                    linkOque.classList.remove('ativa');
+                    //      linkSobre.classList.remove('ativa');
+                } else {
+                    linkPrincipais.classList.remove('ativa');
+                }
+
+                /*
+                                if (posicaoSobre < alturaJanela) {
+                                    //     linkSobre.classList.add('ativa');
+                                    linkPrincipais.classList.remove('ativa');
+                                    linkOque.classList.remove('ativa');
+                                } else {
+                                    linkOque.classList.remove('ativa');
+                                }
+                                */
+            });
+        </script>
+        <script src="scriptModal.js"></script>
+        <script src="./js/loginScript.js"></script>
+        <script src="script.js"></script>
+        <!-- 
 -->
 </body>
+
+
 
 </html>

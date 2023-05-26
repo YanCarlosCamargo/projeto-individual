@@ -56,7 +56,7 @@ hr {
     color: white;
     font-family: 'Supera Gothic';
     font-style: normal;
-    font-weight: 800;
+    font-weight: 500;
     font-size: 16px;
     transition: opacity .2s ease-out;
     transition-delay: .1s;
@@ -724,7 +724,6 @@ hr {
     width: 100%;
     height: 100%;
     padding: 0% 10% 0% 10%;
-    padding-top: 5%;
     color: #000000;
     background-color: rgb(255, 255, 255);
     /*
@@ -746,23 +745,25 @@ hr {
 .wrapperCardsPessoas {
     display: flex;
     flex-wrap: nowrap;
-    width: 90%;
+    width: 100%;
     height: 80%;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-between;
     padding-top: 5%;
 }
 
 .containerCard {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     width: 50%;
+    margin: 2%;
 }
 
 .wrapperCardImg {
     width: 60%;
+    height: 53%;
     filter: drop-shadow(0px 4px 33px rgba(0, 0, 0, 0.43));
     border-radius: 32px;
     overflow: hidden;
@@ -770,6 +771,8 @@ hr {
     border-style: solid;
     border-color: white;
     transition: 0.5s;
+    flex-wrap: wrap;
+    background-color: rgb(255, 53, 53);
 }
 
 .wrapperCardImg:hover {
@@ -788,11 +791,11 @@ hr {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
-    margin-top: 10%;
-    justify-content: center;
+    height: 50%;
+    margin-top: 5%;
     align-items: center;
     text-align: center;
+
 }
 
 
@@ -827,10 +830,20 @@ hr {
     color: #F1CF1D;
 }
 
+.setorA {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    margin-top: 0%;
+}
+
 .wrapperImgInspiracao {
     display: flex;
     width: 25%;
-    margin-left: 10%;
+    margin-left: 5%;
     justify-content: center;
     align-items: center;
     border: 8px solid #FFFFFF;
@@ -844,12 +857,47 @@ hr {
     height: 100%;
 }
 
-.nomeIbere {
-    margin-top: 1%;
+.wrapperTextosIbere {
+    display: flex;
+    flex-direction: column;
     width: 60%;
+    height: 80%;
+    margin-right: 5%;
+}
+
+.nomeIbere {
+    margin-top: 3%;
+    width: 100%;
     font-family: 'Proxima Nova';
     font-style: normal;
     font-weight: 800;
     font-size: 36px;
     line-height: 27px;
+}
+
+.descricaoIbere {
+    margin-top: 5%;
+    width: 100%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+.textoSession3 {
+    text-indent: 5%;
+    margin-top: 10%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 0.005em;
+    text-align: left;
+    color: #000000;
+}
+
+.ativa {
+    font-weight: 800;
 }
