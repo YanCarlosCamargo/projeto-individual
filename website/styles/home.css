@@ -12,11 +12,15 @@ body {
     box-sizing: border-box;
 }
 
+hr {
+    border: 0;
+    height: 1px;
+    background: #ffffff;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
 
 .containerMain {
     width: 100%;
-    height: 100vh;
-
 }
 
 
@@ -640,4 +644,212 @@ body {
     color: #070D25;
     text-decoration: underline;
     cursor: pointer;
+}
+
+/* 
+    estilização do modal de login e cadastro
+*/
+
+.containerSession1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    padding: 0% 10% 0% 10%;
+    padding-top: 20%;
+    color: #000000;
+    background-color: rgb(255, 255, 255);
+    /*
+    background-color: rgb(150, 51, 51);
+*/
+}
+
+.containerSession1 h2 {
+    font-family: 'Supera Gothic';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 54px;
+    text-align: left;
+    color: #000000;
+    width: 100%;
+}
+
+.textoDestaque {
+    color: #F1CF1D;
+}
+
+.wrapperTextos {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 80%;
+
+}
+
+.wrapperTextos p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: left;
+    color: #000000;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.wrapperimagemOque {
+    display: flex;
+    width: 25%;
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+    border: 8px solid #FFFFFF;
+    filter: drop-shadow(0px 4px 33px rgba(0, 0, 0, 0.43));
+    border-radius: 32px;
+    overflow: hidden;
+}
+
+.wrapperimagemOque img {
+    width: 100%;
+    height: 100%;
+}
+
+.containerSession2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    padding: 0% 10% 0% 10%;
+    padding-top: 5%;
+    color: #000000;
+    background-color: rgb(255, 255, 255);
+    /*
+    background-color: rgb(150, 51, 51);
+*/
+}
+
+.containerSession2 h2 {
+    font-family: 'Supera Gothic';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 54px;
+    text-align: center;
+    color: #000000;
+    width: 100%;
+}
+
+.wrapperCardsPessoas {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 90%;
+    height: 80%;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 5%;
+}
+
+.containerCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 50%;
+}
+
+.wrapperCardImg {
+    width: 60%;
+    filter: drop-shadow(0px 4px 33px rgba(0, 0, 0, 0.43));
+    border-radius: 32px;
+    overflow: hidden;
+    border-width: 7px;
+    border-style: solid;
+    border-color: white;
+    transition: 0.5s;
+}
+
+.wrapperCardImg:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.wrapperCardImg img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.wrapperCardText {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin-top: 10%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+.containerSession3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 0% 10% 0% 10%;
+    padding-top: 5%;
+    color: #000000;
+    background-color: rgb(255, 255, 255);
+    /*
+    background-color: rgb(150, 51, 51);
+*/
+}
+
+.containerSession3 h2 {
+    font-family: 'Supera Gothic';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 54px;
+    text-align: left;
+    color: #000000;
+    width: 100%;
+}
+
+.textoDestaque {
+    color: #F1CF1D;
+}
+
+.wrapperImgInspiracao {
+    display: flex;
+    width: 25%;
+    margin-left: 10%;
+    justify-content: center;
+    align-items: center;
+    border: 8px solid #FFFFFF;
+    filter: drop-shadow(0px 4px 33px rgba(0, 0, 0, 0.43));
+    border-radius: 32px;
+    overflow: hidden;
+}
+
+.wrapperImgInspiracao img {
+    width: 100%;
+    height: 100%;
+}
+
+.nomeIbere {
+    margin-top: 1%;
+    width: 60%;
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 27px;
 }

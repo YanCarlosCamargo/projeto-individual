@@ -81,7 +81,7 @@ async function listarPosts() {
 
 }
 
-listar();
+//listar();
 
 async function cadastrar() {
     var nome = document.getElementById('nome').value;
