@@ -63,15 +63,6 @@ async function cadastro() {
         bio: inputBio
     }
 
-    var formData = new FormData();
-    formData.append('foto', foto);
-    formData.append('email', email);
-    formData.append('senha', senha);
-    formData.append('nome', nome);
-    formData.append('telefone', telefone);
-    formData.append('apelido', apelido);
-    formData.append('data', data);
-    formData.append('bio', inputBio);
 
     varFoto = new FormData();
     varFoto.append('image', foto);

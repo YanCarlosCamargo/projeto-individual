@@ -114,13 +114,11 @@ async function removerLike(idUsuario, idPost) {
 }
 
 async function buscarLikes(idUsuario) {
-    return [row] = await promissePool.query(`SELECT a.idLikes, p.titulo, u.apelido, a.qtdLikes FROM assLikes a JOIN tbPosts p ON a.fkPost = p.idPost JOIN tbUsuario u ON a.fkUsuario = u.idUsuario WHERE u.idUsuario = ${idUsuario}`)
+    return [row] = await promissePool.query(`SELECT usuario.apelido, fkAutor, count(fkAutor) as total_likes FROM assLikes a JOIN tbPosts p ON a.fkPost = p.idPost JOIN tbUsuario u ON a.fkUsuario = u.idUsuario JOIN (SELECT idUsuario, apelido from tbusuario) usuario on usuario.idUsuario = fkAutor where fkAutor = ${idUsuario}`)
 }
 
 async function buscarRankLikes() {
-    let [row] = await promissePool.query(`SELECT u.idUsuario, u.apelido, SUM(a.qtdLikes) AS total_likes FROM tbUsuario u JOIN assLikes a ON u.idUsuario = a.fkUsuario GROUP BY u.idUsuario, u.apelido ORDER BY total_likes DESC LIMIT 5`)
-    console.log(row);
-    return row;
+    return [row] = await promissePool.query(`SELECT usuario.apelido, fkAutor, count(fkAutor) as total_likes FROM assLikes a JOIN tbPosts p ON a.fkPost = p.idPost JOIN tbUsuario u ON a.fkUsuario = u.idUsuario JOIN (SELECT idUsuario, apelido from tbusuario) usuario on usuario.idUsuario = fkAutor group by fkAutor ORDER BY count(fkAutor) desc limit 5`)
 }
 
 module.exports = {

@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="line3">
-                    <input type="file" id="inputFoto" accept="image/*" class="inputsBig">
+                    <input type="file" id="inputFoto" accept=".jpg, .jpeg" class="inputsBig">
 
                     <input type="text" id="inputBio" placeholder="Bio" name="" id="">
                 </div>
@@ -136,8 +136,10 @@
 
             <div class="containerLinksNav">
 
-                <div class="linkNav" id="linkOque">Oque é Cultura Maker</div>
-                <div class="linkNav" id="linkPrincipais">Principais Nomes</div>
+                <div class="linkNav" onclick="window.location.href = '#link1'" id="linkOque">Oque é Cultura
+                    Maker</div>
+                <div class="linkNav" onclick="window.location.href = '#textoDestaque'" id="linkPrincipais">Principais
+                    Nomes</div>
                 <div class="linkNav" id="linkSobre">Sobre o Autor</div>
 
                 <div class="perfilWrapper">
@@ -157,6 +159,14 @@
         <div class="heroContainer">
             <div class="fraseWrapper">
                 <div class="frasePrincipal">
+                    <p class="tituloPrincipal">EXPLORE SUA CRIATIVIDADE</p>
+                    <p class="textPrincipal">
+                        Bem-vindo ao mundo da cultura maker, onde a criatividade ganha vida e a
+                        imaginação se transforma
+                        em realidade. Aqui, celebramos a habilidade de criar, inovar e compartilhar conhecimento,
+                        colocando as mãos na massa e trazendo à vida projetos únicos e inspiradores.
+                    </p>
+                    <button onclick="abrirLogin()" class="btnAcessar">Acessar Nossa Comunidade</button>
                 </div>
                 <img id="arduinoIcon" src="./assets/img/design/arduinoIcon.png" alt="">
             </div>
@@ -182,7 +192,7 @@
         </div>
 
 
-        <div class="containerSession1">
+        <div class="containerSession1" id="link1">
             <h2>Bem-vindo à <span class="textoDestaque">Cultura Maker!</span></h2>
 
             <div class="wrapperTextos" id="scrollOque">
@@ -199,7 +209,7 @@
 
         </div>
 
-        <div class="containerSession2">
+        <div class="containerSession2" id="textoDestaque">
             <div class="linhaDivisao"
                 style="height: 1px; width: 80%; margin: 0 auto; background-color: rgb(196, 196, 196); border-radius: 10px; margin-top: 5%;">
             </div>
@@ -239,44 +249,51 @@
             <div class="linhaDivisao"
                 style="height: 1px; width: 80%; margin: 0 auto; background-color: rgb(196, 196, 196); border-radius: 10px; margin-top: 5%;">
             </div>
-            <div class="containerSession3">
-                <h2>Minha Grande <span class="textoDestaque">Inspiração</span></h2>
-                <span class="setorA">
-                    <div class="wrapperImgInspiracao">
-                        <img src="assets/img/design/ibere.jpg" alt="">
-                    </div>
-                    <div class="wrapperTextosIbere">
-                        <label class="nomeIbere">Iberê Thenório</label>
-                        <p class="descricaoIbere">
-                            Iberê Thenório é um criador de conteúdo brasileiro conhecido por sua abordagem única e
-                            envolvente na
-                            divulgação da ciência e da cultura maker. Com sua personalidade cativante e entusiasmo
-                            contagiante,
-                            Iberê conquistou uma legião de fãs ao redor do mundo.</p>
-                    </div>
-                </span>
-                <div class="textoSession3">
-                    Como co-fundador do canal do YouTube "Manual do Mundo", Iberê utiliza vídeos educacionais e
-                    divertidos para desvendar os segredos por trás de experimentos científicos, truques de mágica e
-                    projetos DIY (Faça Você Mesmo). Sua paixão pela aprendizagem prática e mão na massa inspira
-                    espectadores de todas as idades a explorar o mundo ao seu redor de maneira criativa.
-                    <br><br>
-                    Iberê é reconhecido por sua habilidade em explicar conceitos complexos de forma simples e acessível,
-                    tornando a ciência e a tecnologia mais compreensíveis para o público em geral. Seus experimentos
-                    desafiadores e suas demonstrações fascinantes incentivam a curiosidade e a exploração, despertando o
-                    espírito de descoberta em todos que assistem aos seus vídeos.
+        </div>
+        <div class="containerSession3">
+            <h2>Minha Grande <span class="textoDestaque">Inspiração</span></h2>
+            <span class="setorA">
+                <div class="wrapperImgInspiracao">
+                    <img src="assets/img/design/ibere.jpg" alt="">
                 </div>
+                <div class="wrapperTextosIbere">
+                    <label class="nomeIbere">Iberê Thenório</label>
+                    <p class="descricaoIbere">
+                        Iberê Thenório é um criador de conteúdo brasileiro conhecido por sua abordagem única e
+                        envolvente na
+                        divulgação da ciência e da cultura maker. Com sua personalidade cativante e entusiasmo
+                        contagiante,
+                        Iberê conquistou uma legião de fãs ao redor do mundo.</p>
+                </div>
+            </span>
+            <div class="textoSession3">
+                Como co-fundador do canal do YouTube "Manual do Mundo", Iberê utiliza vídeos educacionais e
+                divertidos para desvendar os segredos por trás de experimentos científicos, truques de mágica e
+                projetos DIY (Faça Você Mesmo). Sua paixão pela aprendizagem prática e mão na massa inspira
+                espectadores de todas as idades a explorar o mundo ao seu redor de maneira criativa.
+                <br><br>
+                Iberê é reconhecido por sua habilidade em explicar conceitos complexos de forma simples e acessível,
+                tornando a ciência e a tecnologia mais compreensíveis para o público em geral. Seus experimentos
+                desafiadores e suas demonstrações fascinantes incentivam a curiosidade e a exploração, despertando o
+                espírito de descoberta em todos que assistem aos seus vídeos.
+            </div>
+        </div>
+
+        <div class="containerSession4">
+            <div class="wrapperHr">
+                <hr class="hrLuz">
+                <hr class="hrLuz">
+            </div>
+            <h2 class="tituloAutor">Yan Carlos Camargo Bezerra</h2>
+            <div class="wrapperImgAutor">
             </div>
         </div>
 
         <script>
             window.addEventListener('scroll', function () {
                 var alturaJanela = window.innerHeight;
-
                 var posicaoPrincipais = scrollPrincipais.getBoundingClientRect().top;
-
                 var posicaoOque = scrollOque.getBoundingClientRect().top;
-
                 //    var posicaoSobre = scrollSobre.getBoundingClientRect().top;
                 if (posicaoOque < alturaJanela) {
                     linkOque.classList.add('ativa');

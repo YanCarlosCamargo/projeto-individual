@@ -45,12 +45,16 @@
                 <div class="wrapperImgPerfil" id="wrapperImgPerfil"></div>
                 <span style="display: flex; flex-direction: column;">
                     <label id="nomeUsuario" class="nomeUsuario">Jnnet D´Lorem</label>
-                    <label id="labelIdUsuario" class="labelIdUsuario">id: </label>
+                    <label id="labelBioUsuario" class="labelBioUsuario">id: </label>
                     <label id="labelLikesUsuario" class="labelLikesUsuario">0 <svg style="display: inline;"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path fill="currentColor"
                                 d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53L12 21.35Z" />
                         </svg></label>
+                    <div class="divBtnEditDel">
+                        <button class="btnDel">Excluir Conta</button>
+                        <button>Salvar Edições</button>
+                    </div>
                 </span>
                 <div class="wrapperCanva">
                     <canvas id="likesChart"></canvas>
@@ -135,7 +139,7 @@
     imgProfile.style.backgroundImage = `url(${sessionStorage.fotoUsuario})`;
     wrapperImgPerfil.style.backgroundImage = `url(${sessionStorage.fotoUsuario})`;
     nomeUsuario.innerHTML = sessionStorage.nomeUsuario;
-    labelIdUsuario.innerHTML += sessionStorage.idUsuario;
+    labelBioUsuario.innerHTML = '"' + sessionStorage.bioUsuario + '"';
     inputNomeCompleto.placeholder = sessionStorage.nomeUsuario;
     inputApelido.placeholder = sessionStorage.apelidoUsuario;
     navName.innerHTML = sessionStorage.apelidoUsuario;
@@ -227,8 +231,9 @@
     fetch('/buscarRankLikes')
         .then(response => response.json())
         .then(data => {
-            const usuarios = data.map(item => item.apelido);
-            const likes = data.map(item => item.total_likes);
+            console.log("Essa é a resposta", data);
+            const usuarios = data[0].map(item => item.apelido);
+            const likes = data[0].map(item => item.total_likes);
             console.log(usuarios, likes);
 
             // Configuração e renderização do gráfico

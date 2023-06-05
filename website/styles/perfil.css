@@ -285,6 +285,8 @@ body {
     background-image: url('../assets/img/profile/default.png');
 }
 
+
+
 .nomeUsuario {
 
     font-family: 'Supera Gothic';
@@ -296,9 +298,9 @@ body {
     color: #000000;
 }
 
-.labelIdUsuario {
+.labelBioUsuario {
     font-family: 'Montserrat';
-    font-style: normal;
+    font-style: italic;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
@@ -315,6 +317,35 @@ body {
     line-height: 24px;
     display: flex;
     color: #000000;
+}
+
+.divBtnEditDel {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: 100%;
+}
+
+.divBtnEditDel button {
+    transition: .2s ease-out;
+    width: 25%;
+    height: 30px;
+    background-color: #1977F3;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-family: 'Supera Gothic';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 24px;
+    margin-right: 2%;
+    cursor: pointer;
+}
+
+.divBtnEditDel button:hover {
+    background-color: #358894;
+    transition: .2s ease-out;
 }
 
 .wrapperCanva {

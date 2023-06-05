@@ -20,6 +20,7 @@ function listarPost(listaPosts, listaLikes) {
     listaPosts = listaPosts.reverse();
     resultado.innerHTML = '';
     var likes = 0;
+    console.log(listaLikes);
     for (let i = 0; i < listaPosts.length; i++) {
         likes = 0;
         jaDeuLike = false;
@@ -252,12 +253,13 @@ function ranking() {
     fetch('/buscarRankLikes')
         .then(response => response.json())
         .then(data => {
-            console.log("Bora ver o ranking", data);
-            const usuarios = data.map(item => item.apelido);
-            const likes = data.map(item => item.total_likes);
+            console.log("Bora ver o ranking", data[0]);
+
+            const usuarios = data[0].map(item => item.apelido);
+            const likes = data[0].map(item => item.total_likes);
             console.log(usuarios, likes);
 
-            graficoGerado.data.labels = usuarios;;
+            graficoGerado.data.labels = usuarios;
             graficoGerado.data.datasets[0].data = likes;
             graficoGerado.update();
         })
