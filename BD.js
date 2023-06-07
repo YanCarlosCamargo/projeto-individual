@@ -82,6 +82,10 @@ async function login(email, senha) {
     return [row] = await promissePool.query(`SELECT * FROM tbUsuario WHERE email = '${email}' AND senha = '${senha}'`)
 }
 
+async function atualizarPerfil(idUsuario, nome, email, telefone, apelido) {
+    return [row] = await promissePool.query(`UPDATE tbUsuario SET nome = '${nome}', email = '${email}', telefone = '${telefone}', apelido = '${apelido}' WHERE idUsuario = '${idUsuario}'`)
+}
+
 async function buscarUsuario(idUsuario) {
     return [row] = await promissePool.query(`SELECT * FROM tbUsuario WHERE idUsuario = '${idUsuario}'`)
 }
@@ -135,5 +139,6 @@ module.exports = {
     removerPost,
     buscarLikes,
     buscarRankLikes,
-    buscarUsuario
+    buscarUsuario,
+    atualizarPerfil
 }; 

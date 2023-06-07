@@ -54,6 +54,19 @@ async function login(req, res) {
     res.json(result[0]);
 }
 
+async function atualizarPerfil(req, res) {
+    let idUsuario = req.params.idUsuario;
+    let nome = req.body.nome;
+    let email = req.body.email;
+    let telefone = req.body.telefone;
+    let apelido = req.body.apelido;
+
+    let result = await bd.atualizarPerfil(idUsuario, nome, email, telefone, apelido);
+    console.log("Perfil atualizado com sucesso! ", result);
+    res.json(result);
+
+}
+
 async function buscarUsuario(req, res) {
     let idUsuario = req.params.idUsuario;
     let result = await bd.buscarUsuario(idUsuario);
@@ -123,5 +136,6 @@ module.exports = {
     removerLike,
     buscarLikes,
     buscarRankLikes,
-    buscarUsuario
+    buscarUsuario,
+    atualizarPerfil
 };

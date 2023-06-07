@@ -40,8 +40,11 @@ router.post('/cadastrar', (req, res, next) => {
     }
 });
 
+router.put('/atualizarPerfil/:idUsuario', (req, res, next) => {
+    controller.atualizarPerfil(req, res);
+});
+
 router.get('/blog/buscarUsuario/:idUsuario', (req, res, next) => {
-    console.log("ACHOU A ROTA");
     controller.buscarUsuario(req, res);
 });
 

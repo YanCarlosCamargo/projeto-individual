@@ -15,11 +15,111 @@ fetch(`/buscarLikes/${sessionStorage.idUsuario}`).then((res) => {
     });
 }).catch(console.log);
 
-function editarPerfil() {
-    let nome = document.getElementById('nome').value;
-    let email = document.getElementById('email').value;
-    let senha = document.getElementById('senha').value;
-    let telefone = document.getElementById('telefone').value;
-    let bio = document.getElementById('bio').value;
-    let apelido = document.getElementById('apelido').value;
-}   
+async function abrirUsuario(idUsuario) {
+    console.log("idUsuario", idUsuario);
+    fetch(`/blog/buscarUsuario/${idUsuario}`)
+        .then(response => response.json()).then(data => {
+            console.log("Dados do usuário: ", data);
+            sessionStorage.nomeUsuario = data[0].nome;
+            sessionStorage.apelidoUsuario = data[0].apelido;
+            sessionStorage.emailUsuario = data[0].email;
+            sessionStorage.telefoneUsuario = data[0].telefone;
+            return true
+        }).catch(console.log)
+
+}
+
+function habilitarEdicao(opcao) {
+    inputApelido;
+    inputEmail;
+    inputTelefone;
+    inputNomeCompleto;
+
+    if (opcao) {
+        inputApelido.disabled = false;
+        inputApelido.classList.remove('inputDisable');
+        inputApelido.classList.add('inputEnable');
+        inputEmail.disabled = false;
+        inputEmail.classList.remove('inputDisable');
+        inputEmail.classList.add('inputEnable');
+        inputTelefone.disabled = false;
+        inputTelefone.classList.remove('inputDisable');
+        inputTelefone.classList.add('inputEnable');
+        inputNomeCompleto.disabled = false;
+        inputNomeCompleto.classList.remove('inputDisable');
+        inputNomeCompleto.classList.add('inputEnable');
+    } else {
+        inputApelido.disabled = true;
+        inputApelido.classList.remove('inputEnable');
+        inputApelido.classList.add('inputDisable');
+        inputEmail.disabled = true;
+        inputEmail.classList.remove('inputEnable');
+        inputEmail.classList.add('inputDisable');
+        inputTelefone.disabled = true;
+        inputTelefone.classList.remove('inputEnable');
+        inputTelefone.classList.add('inputDisable');
+        inputNomeCompleto.disabled = true;
+        inputNomeCompleto.classList.remove('inputEnable');
+        inputNomeCompleto.classList.add('inputDisable');
+    }
+
+}
+
+async function atualizarPerfil() {
+    console.log("Atualizando perfil");
+    let nome = document.getElementById('inputNomeCompleto').value;
+    let email = document.getElementById('inputEmail').value;
+    let telefone = document.getElementById('inputTelefone').value;
+    let apelido = document.getElementById('inputApelido').value;
+
+    if (nome == "" && email == "" && telefone == "" && apelido == "") {
+        console.log("Não atualizou");
+        return false;
+    }
+
+    if (nome == "") {
+        nome = document.getElementById('inputNomeCompleto').placeholder;
+    }
+    if (email == "") {
+        email = document.getElementById('inputEmail').placeholder;
+    }
+    if (telefone == "") {
+        telefone = document.getElementById('inputTelefone').placeholder;
+    }
+    if (apelido == "") {
+        apelido = document.getElementById('inputApelido').placeholder;
+    }
+
+
+    let dados = {
+        nome: nome,
+        email: email,
+        telefone: telefone,
+        apelido: apelido
+    }
+
+    await fetch(`/atualizarPerfil/${sessionStorage.idUsuario}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dados)
+    });
+    console.log("Atualizou");
+    await abrirUsuario(sessionStorage.idUsuario);
+}
+
+btnEdicao.addEventListener('click', async () => {
+    console.log("Clicou");
+    if (inputApelido.disabled) {
+        console.log("Editando");
+        habilitarEdicao(true);
+        btnEdicao.innerHTML = "Salvar Edições";
+    } else {
+        console.log("Salvando");
+        habilitarEdicao(false);
+        await atualizarPerfil();
+        btnEdicao.innerHTML = "Editar Perfil";
+    }
+});
+

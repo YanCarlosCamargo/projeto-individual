@@ -8,12 +8,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="../styles/perfil.css">
     <link rel="stylesheet" href="../styles/fonts.css">
+    <script src="../js/verfificarSession.js"></script>
 </head>
 
 <body>
     <div class="overlay" id="loadingOverlay">
         <div class="overlay__inner">
-            <div class="overlay__content" i><span class="spinner"></span></div>
+            <div class="overlay__content"><span class="spinner"></span></div>
         </div>
     </div>
     <div class="containerMain">
@@ -53,7 +54,7 @@
                         </svg></label>
                     <div class="divBtnEditDel">
                         <button class="btnDel">Excluir Conta</button>
-                        <button>Salvar Edições</button>
+                        <button id="btnEdicao">Editar Perfil</button>
                     </div>
                 </span>
                 <div class="wrapperCanva">
@@ -71,19 +72,19 @@
 
                     <span>
                         <label class="labelInfoPessoais">Email</label>
-                        <input type=" text" id="inputEmail" class="inputEnable">
+                        <input type=" text" id="inputEmail" class="inputDisable" disabled>
                     </span>
                 </span>
 
                 <span>
                     <span>
                         <label class="labelInfoPessoais">Telefone</label>
-                        <input type=" text" id="inputTelefone" class="inputEnable">
+                        <input type=" text" id="inputTelefone" class="inputDisable" disabled>
                     </span>
 
                     <span>
                         <label class="labelInfoPessoais">Nome Completo</label>
-                        <input type=" text" id="inputNomeCompleto" placeholder="" class="inputDisable">
+                        <input type=" text" id="inputNomeCompleto" placeholder="" class="inputDisable" disabled>
                     </span>
 
                 </span>
@@ -130,7 +131,6 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/perfilScript.js"></script>
-    <script src="../js/verfificarSession.js"></script>
 </body>
 
 </html>
