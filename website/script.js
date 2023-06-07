@@ -105,3 +105,15 @@ async function cadastrar() {
         listar();
     }).catch(err => { console.log("Deu erro, ai ó: ", err) });
 }
+
+inputFoto.addEventListener('change', function () {
+    console.log(inputFoto.files);
+    var img = inputFoto.files[0];
+    console.log(URL.createObjectURL(img));
+    imgRegistro.style.backgroundImage = `url(${URL.createObjectURL(img)})`;
+    btnAdicionarFoto.innerHTML = 'Alterar foto';
+});
+
+btnAdicionarFoto.addEventListener('click', function () {
+    inputFoto.click();
+});

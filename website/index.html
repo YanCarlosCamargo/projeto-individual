@@ -15,50 +15,40 @@
     <div class="containerModal" id="containerModal">
 
         <div class="cardRegister modal" id="cardRegister">
-            <div class="topRegister">
 
-                <div class="imgRegister">
-                </div>
-
-                <div class="buttonCloseRegister" onclick="toggleModal()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#0F1631" class="bi bi-x-lg"
-                        viewBox="0 0 16 16">
-                        <path
-                            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-                    </svg>
-                </div>
+            <div class="buttonCloseRegister" onclick="toggleModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-x-lg"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                </svg>
             </div>
+
 
 
             <div class="sectionRegister">
 
-                <h2 class="textMyData">Cadastro</h2>
+                <h2 class="tituloCadastro">Cadastro</h2>
 
-                <div class="line1">
-                    <input type="text" id="inputNomeCompleto" placeholder="Nome Completo" class="inputsBig">
-
-                    <input type="text" id="inputApelido" placeholder="Apelido" class="inputsAverage">
-                    <input type="date" id="inputData" class="inputsAverage" name="" id="">
-
-                    <input type="tel" id=inputTelefone placeholder="Telefone somente numneros" class="inputsAverage">
+                <div class="containerInputsRegistro">
+                    <input type="text" class="inputRegistro" id="inputNomeCompleto" placeholder="Nome Completo">
+                    <input type="text" class="inputRegistro" id="inputApelido" placeholder="Apelido">
+                    <input type="date" class="inputRegistro" id="inputData" name="">
+                    <input type="tel" class="inputRegistro" id=inputTelefone placeholder="Telefone somente numneros">
+                    <input type="text" class="inputRegistro" id="inputEmailCadastro" placeholder="Email">
+                    <input type="password" class="inputRegistro" id="inputSenhaCadastro" placeholder="Senha">
+                    <input type="password" class="inputRegistro" id="inputConfirm" placeholder="Confirme sua senha">
+                    <input type="file" style="display: none;" id="inputFoto" accept=".jpg, .jpeg">
+                    <button class="inputRegistro" id="btnAdicionarFoto">Adicionar Foto</button>
+                    <input type="text" class="inputRegistro" id="inputBio" placeholder="Bio" name="" id="">
+                    <div class="imgRegistro" id="imgRegistro"></div>
                 </div>
 
-                <div class="line2">
-                    <input type="text" id="inputEmailCadastro" placeholder="Email" class="inputsBig">
-                    <input type="password" id="inputSenhaCadastro" placeholder="Senha" class="inputsAverage">
-                    <input type="password" id="inputConfirm" placeholder="Confirme sua senha" class="inputsAverage">
-                </div>
-
-                <div class="line3">
-                    <input type="file" id="inputFoto" accept=".jpg, .jpeg" class="inputsBig">
-
-                    <input type="text" id="inputBio" placeholder="Bio" name="" id="">
-                </div>
-
-                <div class="line4">
+                <div class="wrapperBtnRegistro">
                     <div class="clickEnter" id="clickSave" onclick="cadastro()">Salvar</div>
                     <div class="haveAccount" id="haveAccount">Já tem uma conta? Entre</div>
                 </div>
+
 
             </div>
         </div>
@@ -88,7 +78,6 @@
                             <path
                                 d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
                         </svg>
-                        <a style="margin: 10px;"></a>
                         <a>Email</a>
                     </div>
 
@@ -104,7 +93,7 @@
                             <path
                                 d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                         </svg>
-                        <a style="margin: 10px;"></a>
+
                         <a>Senha</a>
                     </div>
 

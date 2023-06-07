@@ -75,7 +75,7 @@ function toggleLogin() {
     var modalLogin = document.getElementById("cardLogin");
 
     if (modalRegisterState == "none" || modalRegisterState == "") {
-        modalRegister.style.display = "block";
+        modalRegister.style.display = "flex";
         modalLogin.style.display = "none";
     } else {
         modalRegister.style.display = "none";

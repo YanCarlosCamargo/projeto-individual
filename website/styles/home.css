@@ -389,7 +389,8 @@ body {
     border-top: none;
     border-bottom: #1F4662 solid 3px;
     background: transparent;
-    font-size: 125%
+    font-size: 1.3em;
+    color: #ffffff;
 }
 
 
@@ -419,7 +420,7 @@ body {
 }
 
 .rightLoginBackground {
-    background-color: #d9d9d9c7;
+    background-color: #358894;
     width: 50%;
     height: 100%;
 }
@@ -441,7 +442,8 @@ body {
 }
 
 .textLogin {
-    color: #1F4662;
+    color: #213e52;
+
     margin-top: 30px;
     margin-bottom: 20px;
     justify-content: left;
@@ -453,37 +455,39 @@ body {
 }
 
 .textEmail {
-    justify-content: flex-start;
-    color: #1F4662;
+    justify-content: space-between;
+    color: #213e52;
     font-size: 22px;
     flex-direction: row;
     display: flex;
     width: 30%;
-    height: 5%;
+    height: 7%;
     align-items: center;
     padding-left: 80px;
     font-weight: bold;
     padding-top: 15px;
+    margin-top: 3%;
 }
 
 .textPassword {
-    justify-content: flex-start;
-    color: #1F4662;
+    justify-content: space-between;
+    color: #213e52;
     font-size: 22px;
     flex-direction: row;
     display: flex;
     width: 30%;
-    height: 5%;
+    height: 7%;
     align-items: center;
     padding-left: 80px;
     font-weight: bold;
-    padding-top: 30px;
+    padding-top: 15px;
+    margin-top: 3%;
 }
 
 .cardsClicks {
     color: white;
     display: flex;
-    width: 65%;
+    width: 80%;
     margin-top: 5%;
     padding-left: 18%;
     padding-right: 18%;
@@ -504,7 +508,6 @@ body {
 }
 
 .clickRecoverPassword {
-
     padding-left: 5%;
     padding-right: 5%;
     align-items: center;
@@ -545,27 +548,21 @@ body {
     display: none;
     overflow: hidden;
     animation: openModal 1s normal;
-
-}
-
-.topRegister {
-    background-size: cover;
-    background-image: url(img/imgCadastro.png);
-    display: flex;
-    width: 100%;
-    height: 30%;
-    border-radius: 15px 15px 0 0;
+    background-color: #358894;
+    flex-direction: column;
 }
 
 .buttonCloseRegister {
-
-    position: absolute;
+    cursor: pointer;
     display: flex;
-    width: 3%;
-    height: 3%;
+    position: absolute;
     z-index: 100;
-    padding-left: 57%;
-    padding-top: 1%;
+    align-items: end;
+    flex-direction: column;
+    align-self: end;
+    margin-right: 2%;
+    margin-top: 1%;
+    color: white;
 }
 
 .sectionRegister {
@@ -573,129 +570,94 @@ body {
     font-family: 'Poppins';
 
     background-color: #d9d9d999;
-
+    background-color: #358894;
     display: flex;
     width: 100%;
     flex-direction: column;
-    height: 70%;
+    height: 90%;
     border-radius: 0 0 20px 20px;
 }
 
-.textMyData {
-
+.tituloCadastro {
     display: flex;
     justify-content: center;
-    font-size: 200%;
-    color: #1F4662;
+    font-size: 3em;
+    color: #ffffff;
     height: 3%;
     padding-bottom: 3%;
 }
 
-.inputsRegister {
-
-
-    outline: none;
-    background-color: #D9D9D9;
+.containerInputsRegistro {
     display: flex;
-    width: 30%;
-    height: 30px;
-    margin-left: 80px;
-    padding-top: 1px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: #1F4662 solid 3px;
-}
-
-.line1 {
-
-    font-size: 150px;
-    display: flex;
-    width: 90%;
-    height: 10%;
-    justify-content: space-around;
-}
-
-.line2 {
-    padding-top: 3%;
-
-    display: flex;
-    width: 90%;
-    height: 10%;
-    justify-content: space-around;
-}
-
-.line3 {
-    padding-top: 3%;
-
-    display: flex;
-    width: 90%;
-    height: 10%;
-    justify-content: space-around;
-}
-
-.line4 {
-    align-items: center;
-    padding-top: 5%;
-    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     width: 100%;
     height: 100%;
-    flex-direction: column;
-
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    display: flex;
 }
 
-.inputsSmall {
+
+
+.inputRegistro {
+    width: 40%;
+    height: 10%;
     outline: none;
-    background-color: #D9D9D9;
-    display: flex;
-    width: 10%;
-    height: 30px;
-    margin-left: 80px;
-    padding-top: 1px;
-    border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: #1F4662 solid 3px;
-}
-
-.inputsAverage {
-
-    outline: none;
-    background-color: #D9D9D9;
-    display: flex;
-    width: 20%;
-    height: 30px;
-    margin-left: 80px;
-    padding-top: 1px;
     border-top: none;
-    border-left: none;
-    border-right: none;
     border-bottom: #1F4662 solid 3px;
+    background: transparent;
+    font-size: 22px;
+    color: #ffffff;
+    transition: scale .5s;
 }
 
-.inputsBig {
-    font-family: 'Poppins';
+.inputRegistro::placeholder {
+    color: #1F4662;
+    font-size: 14px;
+}
 
-    outline: none;
-    background-color: #D9D9D9;
+.inputRegistro:focus {
+    color: #ffffff;
+    scale: 1.1;
+}
+
+.imgRegistro {
+    width: 40%;
+    height: 40%;
+    background-color: #2b4f7f;
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+#btnAdicionarFoto {
+    border: none;
+    font-family: Poppins;
+    background-color: #1977F3;
+    color: white;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.wrapperBtnRegistro {
+    width: 100%;
     display: flex;
-    width: 45%;
-    height: 30px;
-    margin-left: 80px;
-    padding-top: 1px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: #1F4662 solid 3px;
+    justify-content: space-evenly;
+    align-items: space;
 }
 
-.clickSave {
+#clickSave {
     color: white;
     align-items: center;
     justify-content: center;
-    background-color: #1F4662;
+
     display: flex;
-    width: 200px;
     height: 40px;
     border-radius: 10px;
 }
@@ -704,14 +666,14 @@ body {
     margin-top: 1%;
     font-size: 14px;
     align-items: center;
-    color: #070D25;
+    color: #ffffff;
 }
 
 .haveAccount:hover {
     margin-top: 1%;
     font-size: 14px;
     align-items: center;
-    color: #070D25;
+    color: #ffffff;
     text-decoration: underline;
     cursor: pointer;
 }

@@ -72,3 +72,8 @@
     src: url(../assets/font/ProximaNovaBold.otf);
     font-weight: 700;
 }
+
+@font-face {
+    font-family: Poppins;
+    src: url(../assets/font/Poppins-Regular.ttf);
+}
