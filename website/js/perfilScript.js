@@ -24,16 +24,26 @@ async function abrirUsuario(idUsuario) {
             sessionStorage.apelidoUsuario = data[0].apelido;
             sessionStorage.emailUsuario = data[0].email;
             sessionStorage.telefoneUsuario = data[0].telefone;
+            nomeUsuario.innerHTML = sessionStorage.nomeUsuario;
+            inputNomeCompleto.placeholder = sessionStorage.nomeUsuario;
+            inputApelido.placeholder = sessionStorage.apelidoUsuario;
+            navName.innerHTML = sessionStorage.apelidoUsuario;
+            inputTelefone.placeholder = sessionStorage.telefoneUsuario;
+            inputEmail.placeholder = sessionStorage.emailUsuario;
+
+            inputApelido.value = "";
+            inputApelido.placeholder = sessionStorage.apelidoUsuario;
+            inputEmail;
+            inputTelefone;
+            inputNomeCompleto;
+
             return true
         }).catch(console.log)
 
 }
 
 function habilitarEdicao(opcao) {
-    inputApelido;
-    inputEmail;
-    inputTelefone;
-    inputNomeCompleto;
+
 
     if (opcao) {
         inputApelido.disabled = false;
@@ -123,3 +133,41 @@ btnEdicao.addEventListener('click', async () => {
     }
 });
 
+function abrirModal() {
+    if (modalDecisao.style.display == 'flex') {
+        containerMain.style.filter = 'blur(0px)';
+        modalDecisao.style.display = 'none';
+    } else {
+        containerMain.style.filter = 'blur(5px)';
+        modalDecisao.style.display = 'flex';
+    }
+}
+
+btnDel.addEventListener('click', () => {
+    modalDecisao.innerHTML = `
+     <h3 class="tituloModal">Excluir Conta?</h3>
+        <p class="descricaoModal">
+            Você tem certeza que deseja excluir sua conta? Todos os seus posts serão excluidos e não poderão ser
+            recuperados.
+        </p>
+        <div class="wrapperBtnModal">
+            <button class="btnModal" onclick="abrirModal()" id="btnCancelar">Cancelar</button>
+            <button class="btnModal" onclick="excluirUsuario()" id="btnConfirmar">Confirmar</button>
+        </div>
+    `;
+    abrirModal();
+});
+
+function modalRemoverPost(id) {
+    modalDecisao.innerHTML = `
+     <h3 class="tituloModal">Excluir Post?</h3>
+        <p class="descricaoModal">
+            Você tem certeza que deseja excluir este post? Ele não poderá ser recuperado.
+        </p>
+        <div class="wrapperBtnModal">
+            <button class="btnModal" onclick="abrirModal()" id="btnCancelar">Cancelar</button>
+            <button class="btnModal" onclick="removerPost(${id}); abrirModal()" id="btnConfirmar">Confirmar</button>
+        </div>
+    `;
+    abrirModal();
+}

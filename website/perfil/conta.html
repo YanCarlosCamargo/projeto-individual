@@ -8,7 +8,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="../styles/perfil.css">
     <link rel="stylesheet" href="../styles/fonts.css">
-    <script src="../js/verfificarSession.js"></script>
 </head>
 
 <body>
@@ -17,7 +16,20 @@
             <div class="overlay__content"><span class="spinner"></span></div>
         </div>
     </div>
-    <div class="containerMain">
+
+    <div class="containerModalDecisao" id="modalDecisao">
+        <h3 class="tituloModal">Excluir Conta?</h3>
+        <p class="descricaoModal">
+            Você tem certeza que deseja excluir sua conta? Todos os seus posts serão excluidos e não poderão ser
+            recuperados.
+        </p>
+        <div class="wrapperBtnModal">
+            <button class="btnModal" id="btnCancelar">Cancelar</button>
+            <button class="btnModal" id="btnConfirmar">Confirmar</button>
+        </div>
+    </div>
+
+    <div class="containerMain" id="containerMain">
         <div class="navContainer">
             <div class="logoContainer" onclick="window.location.href= '/'">
                 <img src="./assets/img/design/logo.png" alt="">
@@ -53,7 +65,7 @@
                                 d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53L12 21.35Z" />
                         </svg></label>
                     <div class="divBtnEditDel">
-                        <button class="btnDel">Excluir Conta</button>
+                        <button class="btnDel" id="btnDel">Excluir Conta</button>
                         <button id="btnEdicao">Editar Perfil</button>
                     </div>
                 </span>
@@ -129,6 +141,7 @@
 
 
     </div>
+    <script src="../js/verfificarSession.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/perfilScript.js"></script>
 </body>
@@ -185,7 +198,7 @@
 
                     <span class="spanMenor">
                      <label class="labelDataPost">${dia}/${mes}/${ano}</label>
-                        <svg xmlns="http://www.w3.org/2000/svg" onclick="removerPost(${post.idPost})" width="27" height="27" viewBox="0 0 24 24">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="btnDelPost" onclick="modalRemoverPost(${post.idPost})" width="27" height="27" viewBox="0 0 24 24">
                             <path fill="red"
                                 d="m9.4 16.5l2.6-2.6l2.6 2.6l1.4-1.4l-2.6-2.6L16 9.9l-1.4-1.4l-2.6 2.6l-2.6-2.6L8 9.9l2.6 2.6L8 15.1l1.4 1.4ZM7 21q-.825 0-1.413-.588T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.588 1.413T17 21H7ZM17 6H7v13h10V6ZM7 6v13V6Z" />
                         </svg>
