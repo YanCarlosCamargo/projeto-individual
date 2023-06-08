@@ -268,6 +268,8 @@ function ranking() {
         });
 }
 
+
+
 var ultimoId;
 async function abrirUsuario(idUsuario) {
     console.log("idUsuario", idUsuario);
