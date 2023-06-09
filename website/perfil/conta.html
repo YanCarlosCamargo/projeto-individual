@@ -56,7 +56,7 @@
             <label class="titulo">Conta</label>
             <div class="wrapperInfoGeral">
                 <div class="wrapperImgPerfil" id="wrapperImgPerfil"></div>
-                <span style="display: flex; flex-direction: column;">
+                <span style="display: flex; flex-direction: column; width: 50%;">
                     <label id="nomeUsuario" class="nomeUsuario">Jnnet D´Lorem</label>
                     <label id="labelBioUsuario" class="labelBioUsuario">id: </label>
                     <label id="labelLikesUsuario" class="labelLikesUsuario">0 <svg style="display: inline;"
@@ -181,10 +181,13 @@
     function listarPosts(lista) {
         console.log(lista);
         wrapperPosts.innerHTML = "";
+        console.log("Total de Posts ", lista.length);
+
+        let count = 0;
         lista.reverse();
         lista.forEach(post => {
             if (post.fkAutor == sessionStorage.idUsuario) {
-                console.log(post);
+                count++;
                 let dia = post.dtPost.split("T")[0].split("-")[2];
                 let mes = post.dtPost.split("T")[0].split("-")[1];
                 let ano = post.dtPost.split("T")[0].split("-")[0];
@@ -194,8 +197,6 @@
                         <label class="labelIdPost">${post.idPost}</label>
                         <label class="labelTituloPost">${post.titulo}</label>
                     </span>
-
-
                     <span class="spanMenor">
                      <label class="labelDataPost">${dia}/${mes}/${ano}</label>
                         <svg xmlns="http://www.w3.org/2000/svg" id="btnDelPost" onclick="modalRemoverPost(${post.idPost})" width="27" height="27" viewBox="0 0 24 24">
@@ -206,6 +207,16 @@
                 </div>
                 `;
 
+            }
+            if (count == 0) {
+                wrapperPosts.innerHTML = `
+            <div class="postContainer">
+                <span class="spanMaior">
+                    <label class="labelIdPost">Nenhum post encontrado</label>
+                </span>
+            </div>
+            `;
+                return false;
             }
         });
     }

@@ -72,4 +72,8 @@ router.get('/buscarRankLikes', (req, res, next) => {
     controller.buscarRankLikes(req, res);
 });
 
+router.delete('/deletarUsuario/:idUsuario', (req, res, next) => {
+    controller.deletarUsuario(req, res);
+});
+
 module.exports = router;

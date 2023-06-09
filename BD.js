@@ -86,6 +86,11 @@ async function atualizarPerfil(idUsuario, nome, email, telefone, apelido) {
     return [row] = await promissePool.query(`UPDATE tbUsuario SET nome = '${nome}', email = '${email}', telefone = '${telefone}', apelido = '${apelido}' WHERE idUsuario = '${idUsuario}'`)
 }
 
+async function deletarUsuario(idUsuario) {
+    await removerPost(undefined, idUsuario);
+    return [row] = await promissePool.query(`DELETE FROM tbUsuario WHERE idUsuario = '${idUsuario}'`)
+}
+
 async function buscarUsuario(idUsuario) {
     return [row] = await promissePool.query(`SELECT * FROM tbUsuario WHERE idUsuario = '${idUsuario}'`)
 }
@@ -104,8 +109,18 @@ async function inserirPost(idUsuario, titulo, desc, imgLink) {
     return [row] = await promissePool.query(`INSERT INTO tbPosts (fkAutor, titulo, descPost, dtPost, imgPost) VALUES ('${idUsuario}', '${titulo}', '${desc}', now(), '${imgLink}')`)
 }
 
-async function removerPost(idPost) {
-    promissePool.query(`DELETE FROM asslikes WHERE fkPost = '${idPost}'`).then(() => { promissePool.query(`DELETE FROM tbPosts WHERE idPost = '${idPost}'`).then(() => { return true }) })
+async function removerPost(idPost, idUsuario) {
+    if (idPost == undefined) {
+        console.log("Removendo todos os posts do usuário: ", idUsuario);
+        return promissePool.query(`DELETE FROM assLikes WHERE fkUsuario IN (SELECT idUsuario FROM tbUsuario WHERE idUsuario = '${idUsuario}')`).then(() => {
+            promissePool.query(`DELETE FROM assLikes WHERE fkPost IN (SELECT idPost FROM tbPosts WHERE fkAutor = ${idUsuario})`)
+            console.log("Likes removidos com sucesso!");
+            promissePool.query(`DELETE FROM tbPosts WHERE fkAutor IN (SELECT idUsuario FROM tbUsuario WHERE idUsuario = ${idUsuario})`).then(() => { return true })
+        })
+    } else {
+        console.log("Removendo o post: ", idPost);
+        return promissePool.query(`DELETE FROM asslikes WHERE fkPost = '${idPost}'`).then(() => { promissePool.query(`DELETE FROM tbPosts WHERE idPost = '${idPost}'`).then(() => { return true }) })
+    }
 
 }
 
@@ -114,7 +129,14 @@ async function inserirLike(idUsuario, idPost) {
 }
 
 async function removerLike(idUsuario, idPost) {
-    return [row] = await promissePool.query(`DELETE FROM asslikes WHERE fkUsuario = '${idUsuario}' AND fkPost = '${idPost}'`)
+    let instrucaoSql;
+    if (idPost == undefined) {
+        instrucaoSql = `DELETE FROM asslikes WHERE fkAutor = '${idUsuario}'`
+    } else {
+        instrucaoSql = `DELETE FROM asslikes WHERE fkUsuario = '${idUsuario}' AND fkPost = '${idPost}'`
+    }
+    console.log("Removendo like: ", instrucaoSql);
+    return [row] = await promissePool.query(instrucaoSql)
 }
 
 async function buscarLikes(idUsuario) {
@@ -140,5 +162,6 @@ module.exports = {
     buscarLikes,
     buscarRankLikes,
     buscarUsuario,
-    atualizarPerfil
+    atualizarPerfil,
+    deletarUsuario
 }; 

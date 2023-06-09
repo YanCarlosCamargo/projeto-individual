@@ -171,3 +171,13 @@ function modalRemoverPost(id) {
     `;
     abrirModal();
 }
+
+function excluirUsuario() {
+    fetch(`/deletarUsuario/${sessionStorage.idUsuario}`, {
+        method: 'DELETE'
+    }).then(() => {
+        alert("Conta excluída com sucesso!");
+        sessionStorage.clear();
+        window.location.href = "../";
+    }).catch((err) => { console.log(err); alert("Erro ao excluir conta!") });
+}

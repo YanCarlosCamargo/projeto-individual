@@ -73,6 +73,12 @@ async function buscarUsuario(req, res) {
     res.status(200).json(result[0]);
 }
 
+async function deletarUsuario(req, res) {
+    let idUsuario = req.params.idUsuario;
+    let result = await bd.deletarUsuario(idUsuario);
+    res.status(200).json(result);
+}
+
 async function listarPosts(req, res) {
     let result = await bd.listarPosts();
     res.json(result);
@@ -137,5 +143,6 @@ module.exports = {
     buscarLikes,
     buscarRankLikes,
     buscarUsuario,
-    atualizarPerfil
+    atualizarPerfil,
+    deletarUsuario
 };
