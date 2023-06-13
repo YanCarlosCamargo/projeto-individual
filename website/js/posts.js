@@ -279,6 +279,8 @@ async function abrirUsuario(idUsuario) {
                 ultimoId = data[0].idUsuario;
                 console.log("Perfil Recebido", data[0]);
                 labelNome.innerHTML = data[0].apelido; imgProfileLateral.style.backgroundImage = `url(${data[0].imgPerfil})`;
+                labelBio.innerHTML = '"' + data[0].bio + '"';
+                labelCadastro.innerHTML = "Membro(a) desde: " + data[0].dtCadastro.split('-')[2].split('T')[0] + '/' + data[0].dtCadastro.split('-')[1] + '/' + data[0].dtCadastro.split('-')[0];
                 containerAbaLateral.classList.remove('containerAbaLateral');
                 containerAbaLateral.classList.add('containerAbaLateralAberto');
                 wrapperConteudoLateral.classList.remove('wrapperConteudoLateral');

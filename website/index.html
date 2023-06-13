@@ -12,6 +12,13 @@
 </head>
 
 <body>
+
+
+    <div class="overlay" id="loadingOverlay">
+        <div class="overlay__inner">
+            <div class="overlay__content"><span class="spinner"></span></div>
+        </div>
+    </div>
     <div class="containerModal" id="containerModal">
 
         <div class="cardRegister modal" id="cardRegister">
@@ -34,7 +41,7 @@
                     <input type="text" class="inputRegistro" id="inputNomeCompleto" placeholder="Nome Completo">
                     <input type="text" class="inputRegistro" id="inputApelido" placeholder="Apelido">
                     <input type="date" class="inputRegistro" id="inputData" name="">
-                    <input type="tel" class="inputRegistro" id=inputTelefone placeholder="Telefone somente numneros">
+                    <input type="number" class="inputRegistro" id=inputTelefone placeholder="Telefone somente numneros">
                     <input type="text" class="inputRegistro" id="inputEmailCadastro" placeholder="Email">
                     <input type="password" class="inputRegistro" id="inputSenhaCadastro" placeholder="Senha">
                     <input type="password" class="inputRegistro" id="inputConfirm" placeholder="Confirme sua senha">
@@ -129,7 +136,6 @@
                     Maker</div>
                 <div class="linkNav" onclick="window.location.href = '#textoDestaque'" id="linkPrincipais">Principais
                     Nomes</div>
-                <div class="linkNav" id="linkSobre">Sobre o Autor</div>
 
                 <div class="perfilWrapper">
                     <div class="loginContainer linkNav" id="btnLogin">
@@ -240,7 +246,7 @@
             </div>
         </div>
         <div class="containerSession3">
-            <h2>Minha Grande <span class="textoDestaque">Inspiração</span></h2>
+            <h2>Grande Nome <span class="textoDestaque">Brasileiro</span></h2>
             <span class="setorA">
                 <div class="wrapperImgInspiracao">
                     <img src="assets/img/design/ibere.jpg" alt="">
@@ -268,15 +274,7 @@
             </div>
         </div>
 
-        <div class="containerSession4">
-            <div class="wrapperHr">
-                <hr class="hrLuz">
-                <hr class="hrLuz">
-            </div>
-            <h2 class="tituloAutor">Yan Carlos Camargo Bezerra</h2>
-            <div class="wrapperImgAutor">
-            </div>
-        </div>
+
 
         <script>
             window.addEventListener('scroll', function () {
