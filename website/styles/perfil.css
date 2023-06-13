@@ -427,14 +427,56 @@ body {
 }
 
 .wrapperCanva {
-    position: absolute;
-    margin: 0 auto;
-    margin-right: 0;
-    right: 15%;
-
-    height: 50vh;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 30%;
+    height: 100%;
+}
+
+.labelPosicao {
+    font-family: 'Supera Gothic';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.2em;
+    color: #000;
+    margin-bottom: 1%;
+    width: 100%;
+    text-align: center;
+}
+
+#posicaoUsuario {
+    width: 100%;
+    font-size: 6em;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    text-align: center;
+}
+
+#posicaoUsuario::before {
+    content: "#";
+    font-size: 1em;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    text-align: center;
+}
+
+#posicaoUsuario::selection {
+    background-color: transparent;
+}
+
+#rankingYN {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1em;
+    color: #000;
+    margin-bottom: 1%;
+    width: 100%;
+    text-align: center;
 }
 
 .wrapperCanva canvas {

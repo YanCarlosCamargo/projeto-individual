@@ -144,7 +144,7 @@ async function buscarLikes(idUsuario) {
 }
 
 async function buscarRankLikes() {
-    return [row] = await promissePool.query(`SELECT usuario.apelido, fkAutor, count(fkAutor) as total_likes FROM assLikes a JOIN tbPosts p ON a.fkPost = p.idPost JOIN tbUsuario u ON a.fkUsuario = u.idUsuario JOIN (SELECT idUsuario, apelido from tbusuario) usuario on usuario.idUsuario = fkAutor group by fkAutor ORDER BY count(fkAutor) desc limit 5`)
+    return [row] = await promissePool.query(`SELECT usuario.apelido, fkAutor, count(fkAutor) as total_likes FROM assLikes a JOIN tbPosts p ON a.fkPost = p.idPost JOIN tbUsuario u ON a.fkUsuario = u.idUsuario JOIN (SELECT idUsuario, apelido from tbusuario) usuario on usuario.idUsuario = fkAutor group by fkAutor ORDER BY count(fkAutor) desc`)
 }
 
 module.exports = {

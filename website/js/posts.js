@@ -254,10 +254,13 @@ function ranking() {
         .then(response => response.json())
         .then(data => {
             console.log("Bora ver o ranking", data[0]);
-
-            const usuarios = data[0].map(item => item.apelido);
-            const likes = data[0].map(item => item.total_likes);
-            console.log(usuarios, likes);
+            data = data[0];
+            const usuarios = []
+            const likes = []
+            for (let i = 0; i < 5; i++) {
+                usuarios.push(data[i].apelido)
+                likes.push(data[i].total_likes)
+            }
 
             graficoGerado.data.labels = usuarios;
             graficoGerado.data.datasets[0].data = likes;
@@ -270,7 +273,7 @@ function ranking() {
 
 
 
-var ultimoId;
+var ultimoId = 1;
 async function abrirUsuario(idUsuario) {
     console.log("idUsuario", idUsuario);
     fetch(`/blog/buscarUsuario/${idUsuario}`)
@@ -308,3 +311,5 @@ async function abrirUsuario(idUsuario) {
         }).catch(console.log)
 
 }
+
+abrirUsuario(sessionStorage.idUsuario);

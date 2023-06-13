@@ -159,8 +159,14 @@
         fetch('/buscarRankLikes')
             .then(response => response.json())
             .then(data => {
-                const usuarios = data.map(item => item.apelido);
-                const likes = data.map(item => item.total_likes);
+                console.log(data);
+                data = data[0]
+                const usuarios = []
+                const likes = []
+                for (let i = 0; i < 5; i++) {
+                    usuarios.push(data[i].apelido)
+                    likes.push(data[i].total_likes)
+                }
                 console.log(usuarios, likes);
                 const ctx = document.getElementById('likesChart').getContext('2d');
                 graficoGerado = new Chart(ctx, {
@@ -170,7 +176,8 @@
                         datasets: [{
                             label: 'Likes',
                             data: likes,
-                            borderWidth: 1
+                            borderWidth: 1,
+                            backgroundColor: ['gold', 'silver', '#cd7f32', '#b87333', '#a67d3d'],
                         }]
                     },
                     options: {
